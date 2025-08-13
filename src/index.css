@@ -28,6 +28,7 @@ html, body, #root {
   width: 100vw;
 }
 
+
 body {
   font-family: var(--font-family-sans);
   line-height: 1.5;
@@ -46,10 +47,14 @@ body {
 }
 
 .navbar-shadow {
+  box-shadow: 5px 5px 30px rgba(30, 30, 30, 0.05);
+}
+
+.dark .navbar-shadow {
   box-shadow: 5px 5px 30px var(--color-black);
 }
 
-button {
+.button-primary {
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -57,13 +62,15 @@ button {
   background-color: var(--color-accent-light);
   font-weight: 400;
   text-transform: uppercase;
+  color: var(--color-black);
 }
 
-.dark button {
+.dark .button-primary {
   background-color: var(--color-accent-dark);
+  color: var(--color-white);
 }
 
-button:hover {
+.button-primary:hover {
 
 }
 
@@ -71,7 +78,6 @@ button.themeButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.5rem;
   height: 2rem;
   width: 2rem;
   border-radius: 100rem;
@@ -80,4 +86,8 @@ button.themeButton {
 
 .dark button.themeButton {
   background-color: var(--color-white);
+}
+
+button.trasp{
+  background-color: transparent;
 }

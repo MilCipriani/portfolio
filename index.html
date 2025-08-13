@@ -15,7 +15,7 @@
     Prevents FOUC(flash of unstyled content) by applying theme immediately
     BEFORE any other scripts -->
   <script>
-      const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme');
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemDark);
     
