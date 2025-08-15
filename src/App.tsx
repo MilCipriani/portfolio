@@ -45,7 +45,7 @@ function App() {
       <Router>
         <div className="h-screen w-screen flex flex-col bg-white dark:bg-blue">
           <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          <div className="flex-1 overflow-hidden">
+          <div className="flex-1 overflow-auto hide-scrollbar">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/work" element={<Work />} />
