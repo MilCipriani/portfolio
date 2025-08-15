@@ -26,7 +26,7 @@ export default function Home() {
         </div>
       </div>
 
-      <p className='text-center lg:hidden'>{INTRO_TEXT}</p>
+      <p className='text-center lg:hidden whitespace-pre-line'>{INTRO_TEXT}</p>
 
       <button className='flex items-center button-primary-layout w-48 justify-center self-center lg:hidden'>Check my works</button>
       {/*------------------------*/}
@@ -37,7 +37,7 @@ export default function Home() {
 
         <div className='flex flex-col gap-24'>
           <h1 className="self-center font-serif text-7xl uppercase">Hello,<br /> I'm Milena</h1>
-          <p className='text-center'>{INTRO_TEXT}</p>
+          <p className='text-center whitespace-pre-line'>{INTRO_TEXT}</p>
           <button className='button-primary-layout hidden lg:flex justify-center self-center items-center w-48'>Check my works</button>
 
         </div>
