@@ -1,4 +1,5 @@
 import ThemeToggle from '../components/ThemeToggle';
+import { Link } from 'react-router-dom'
 
 import Logo from '../assets/Logo.svg?react'
 import flowerImage from '../assets/vintage-flowers-circle.png';
@@ -9,7 +10,7 @@ const INTRO_TEXT = "I'm a software developer who enjoys creating websites that c
 
 const CheckWorksButton = ({ className = "" }) => (
   <button className={`flex items-center button-primary-layout w-48 justify-center self-center ${className}`}>
-    Check my works
+    <Link to="/work">Check my works</Link>
   </button>
 );
 
