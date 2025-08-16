@@ -70,5 +70,3 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
     </div>
   )
 }
-
-//TODO: Extract buttons and images+logo in reusable components, simplify responsive logic, imporve structure, think semantic HTML
