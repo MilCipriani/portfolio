@@ -7,6 +7,9 @@ and with document.documentElement in useTheme I apply it to the
 html element*/
 
 @theme {
+  --breakpoint-xxs: 24rem; /*384px*/
+  --breakpoint-xs: 30rem; /*480px*/
+
   --color-black: #1E1E1E;
   --color-white: #F3F3F3;
   --color-blue: #212026;
@@ -15,6 +18,17 @@ html element*/
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'DM Serif Display', Georgia, serif
+}
+
+/*Hide scrollbar for webkit browsers (Chrome, Safari, Edge)*/
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/*Hide scrollbar for Firefox*/
+.hide-scrollbar {
+  -ms-overflow-style: none;  /*Internet Explorer 10+*/
+  scrollbar-width: none;     /*Firefox*/
 }
 
 * {
@@ -58,6 +72,17 @@ body {
   display: flex;
   align-items: center;
   padding: 1rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  background-color: var(--color-accent-light);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.button-primary-layout {
+  padding: 1rem;
+  line-height: 1;
   border-radius: 0.5rem;
   background-color: var(--color-accent-light);
   font-weight: 400;
@@ -67,11 +92,10 @@ body {
 
 .dark .button-primary {
   background-color: var(--color-accent-dark);
-  color: var(--color-white);
 }
 
-.button-primary:hover {
-
+.dark .button-primary-layout {
+  background-color: var(--color-accent-dark);
 }
 
 button.themeButton {
