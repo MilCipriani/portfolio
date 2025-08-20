@@ -63,7 +63,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
               </Link>
             </li>
             <li className='mt-16 transform transition-transform duration-300 hover:scale-110'>EN</li>
-            <li className="transform transition-transform duration-300 hover:scale-110"><ThemeToggle /></li>
+            <li className="transform transition-transform duration-300 hover:scale-110" onClick={handleLinkClick}><ThemeToggle /></li>
           </ul>
         </nav>
       </div>

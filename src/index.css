@@ -10,11 +10,18 @@ html element*/
   --breakpoint-xxs: 24rem; /*384px*/
   --breakpoint-xs: 30rem; /*480px*/
 
+  --background-image-home-image: url('/src/assets/BGL.svg');
+  --background-image-home-image-dark: url('/src/assets/BGD.svg');
+
   --color-black: #1E1E1E;
   --color-white: #F3F3F3;
-  --color-blue: #212026;
+  --color-blue: #251518;
   --color-accent-light: #F7B78F;
   --color-accent-dark: #FF6509;
+  --color-secondary-light: #D2B9F4;
+  --color-secondary-dark: #FFBE81;
+  --color-transparent-black: rgba(30, 30, 30, 0.85);
+  --color-transparent-white: rgba(243, 243, 243, 0.85);
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'DM Serif Display', Georgia, serif
@@ -40,50 +47,48 @@ html, body, #root {
   padding: 0;
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
-
 
 body {
   font-family: var(--font-family-sans);
   line-height: 1.5;
-  font-weight: 200;
-  font-size: 16px;
+  font-weight: 300;
+  font-size: 14px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: var(--color-black);
+  color: var(--color-transparent-black);
 }
 
 .dark body {
-  color: var(--color-white);
+  color: var(--color-transparent-white);
 }
 
-.navbar-shadow {
-  box-shadow: 5px 5px 30px rgba(30, 30, 30, 0.05);
+.background-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.dark .navbar-shadow {
-  box-shadow: 5px 5px 30px var(--color-black);
+h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+h2 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 200;
 }
 
 .button-primary {
   display: flex;
   align-items: center;
+  width: fit-content;
   padding: 1rem;
   line-height: 1;
-  border-radius: 0.5rem;
-  background-color: var(--color-accent-light);
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--color-black);
-}
-
-.button-primary-layout {
-  padding: 1rem;
-  line-height: 1;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-color: var(--color-accent-light);
   font-weight: 400;
   text-transform: uppercase;
@@ -91,10 +96,6 @@ body {
 }
 
 .dark .button-primary {
-  background-color: var(--color-accent-dark);
-}
-
-.dark .button-primary-layout {
   background-color: var(--color-accent-dark);
 }
 
