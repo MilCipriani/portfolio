@@ -105,7 +105,7 @@ button.themeButton {
   height: 2rem;
   width: 2rem;
   border-radius: 100rem;
-  background-color: var(--color-blue);
+  background-color: var(--color-black);
 }
 
 .dark button.themeButton {

@@ -65,6 +65,12 @@ const [sliderRef, instanceRef] = useKeenSlider({
       "(min-width: 1280px)": {
       slides: { perView: 4, spacing: 20 },
       },
+      "(min-width: 1480px)": {
+      slides: { perView: 3, spacing: 20 },
+      },
+      "(min-width: 1780px)": {
+      slides: { perView: 4, spacing: 20 },
+      },
   },
   slideChanged(slider) {
     setCurrentSlide(slider.track.details.rel)
@@ -135,6 +141,7 @@ const [secondSliderRef] = useKeenSlider({
 
 			<h1 className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{toolsTitle}</h1>
 
+      {/*Toolkit carousel for phones and tables*/ }
       {isMobile && (
         <div  ref={secondSliderRef} className="keen-slider my-8">
           <div className="keen-slider__slide flex justify-center items-center"><Py className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"/></div>
@@ -151,6 +158,7 @@ const [secondSliderRef] = useKeenSlider({
         </div>
       )}
 
+      {/*Toolkit static display for desktops and bigger screens*/ }
       {!isMobile && (
         <div className="flex flex-col justify-center items-center w-full gap-16 px-16 my-8">
           <div className="flex justify-between items-center gap-16">

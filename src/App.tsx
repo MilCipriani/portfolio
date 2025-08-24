@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.tsx'
 import Menu from './components/Menu.tsx'
 import Home from './pages/Home.tsx'
 import Work from './pages/Work.tsx'
+import Contacts from './pages/Contacts.tsx'
 
 import './App.css'
 
@@ -28,6 +29,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </div>
       <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
