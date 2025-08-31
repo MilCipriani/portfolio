@@ -15,7 +15,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
 
   return (
     <div
-        className={`fixed inset-0 bg-white dark:bg-blue z-[100] transition-all duration-500 ease-in-out flex items-center justify-center ${
+        className={`fixed inset-0 bg-white dark:bg-blue z-[100] menu-transition transition-all duration-800 ease-in-out flex items-center justify-center ${
         isMenuOpen 
           ? 'opacity-100 visible' 
           : 'opacity-0 invisible'
@@ -26,10 +26,10 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
           className="trasp"
           aria-label="Close menu"
         >
-          <X className="size-5 text-black dark:text-white"/>
+          <X aria-hidden className="size-5 text-black dark:text-white"/>
         </button>
 
-        <Link to="/" onClick={handleLinkClick} >Milena</Link>
+        <Link aria-label="Go to home page" to="/" onClick={handleLinkClick} >Milena</Link>
 
         <hr className="w-full my-4 border-t border-black dark:border-white" />
 
@@ -62,8 +62,10 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
                 Contacts
               </Link>
             </li>
-            <li className='mt-16 transform transition-transform duration-300 hover:scale-110'>EN</li>
+            <button disabled type="button" aria-disabled="true" aria-label='Change language - in development' className='bg-transparent uppercase'>EN</button>
             <li className="transform transition-transform duration-300 hover:scale-110" onClick={handleLinkClick}><ThemeToggle /></li>
+
+            <li className='mt-16 transform transition-transform duration-300 text-base text-transparent-black dark:text-transparent-white normal-case'>© Milena Cipriani</li>
           </ul>
         </nav>
       </div>

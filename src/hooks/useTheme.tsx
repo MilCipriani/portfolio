@@ -10,17 +10,10 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-//Get the system preference
-const getSystemTheme = (): 'light' | 'dark' => {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  //Get initial theme: from localStorage OR system preference if first visit
+  //Get initial theme: from localStorage OR system preference (from the html script before react renders) if first visit
   const [theme, setThemeState] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme
-    //If there's a saved theme, use it. Else, use system preference
-    return savedTheme || getSystemTheme()
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
   })
 
   //Update theme

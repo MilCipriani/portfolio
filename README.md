@@ -1,69 +1,56 @@
-# React + TypeScript + Vite
+# Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My portfolio as both showcase and learning laboratory. A place to experiment with new techniques while maintaining production-quality code and industry best practices.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
 
-## Expanding the ESLint configuration
+- **React**, **TypeScript**, **Tailwind CSS**
+- **Keen Slider** for lightweight, dependency-free carousels
+- **GitHub Actions** + **GitHub Pages** for CI/CD and hosting
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Accessibility
+- Full keyboard navigation  
+- Screen reader support (semantic HTML + ARIA)  
+- WCAG-compliant color contrast  
+- Zoom support 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Performance
+- Lazy loading for images
+- Preloading of key resources  
+- Optimized build with minimal runtime overhead
+- Lighthouse audits were used to guide performance improvements across key routes, focusing on image optimization, resource loading, and layout stability.  
+
+### Theme System
+- Light/dark mode toggle  
+- Respects system preference  
+- Theme preference stored in `localStorage`  
+- Smooth visual transitions  
+
+### Planned Additions
+- Multi-language support (English, Italian)  
+- Blog section for sharing projects and challenges  
+- Interactive project demos  
+- Contact form
+- Do I want Framer Motion? 
+
+---
+
+### ⚙️ Development
+
+```bash
+npm start       # Start development server
+npm run build   # Create production build
+npm run preview # Preview production build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🤝 Contribution
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This is a personal project, but I’m always open to feedback and suggestions. Feel free to open an issue or reach out.
