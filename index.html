@@ -2,25 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Full-stack Software Developer with front-end expertise, back-end knowledge, and DevOps experience. Building custom web solutions from start to finish.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
-    <title>Vite + React + TS</title>
+
+    <!-- Open graph (social sharing) -->
+    <meta property="og:site_name" content="Milena Cipriani - Software Developer">
+    <meta property="og:title" content="Milena Cipriani">
+    <meta property="og:description" content="Milena Cipriani's portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://milena.work">
+    <meta property="og:image" content="https://milena.work/preview.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Milena Cipriani - Software Developer">
+    <meta name="twitter:description" content="Full-stack Software Developer with front-end expertise, back-end knowledge, and DevOps experience.">
+    <meta name="twitter:image" content="https://milena.work/preview.jpg">
+
+    <!-- Theme color for phone browsers -->
+    <meta name="theme-color" content="#251518">
+
+    <title>Milena</title>
 
     <!--
     Prevents FOUC(flash of unstyled content) by applying theme immediately
-    BEFORE any other scripts -->
-  <script>
+    Keep BEFORE any other scripts -->
+    <script>
       const savedTheme = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemDark);
-    
-    document.documentElement.classList.toggle('dark', shouldBeDark);
-  </script>
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      //Read the system preference
+      const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemDark);
+      //Apply theme immediately, no waiting for react
+      document.documentElement.classList.toggle('dark', shouldBeDark);
+      //Prevent transitions during initial load (routes and theme) to avoid flashing
+      document.documentElement.classList.add('preload');
+      // Remove preload class after React has loaded and styles are applied
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.documentElement.classList.remove('preload');
+        }, 100);
+      });
+    </script>
+
+    <!--SEO-->
+    <link rel="canonical" href="https://milena.work">
+    <meta name="author" content="Milena Cipriani">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="software developer, full-stack developer, front-end development, back-end development, DevOps, web developer, JavaScript, Typescript, Python, React, Node.js, Docker, CI/CD, developer portfolio, custom web solutions, startup developer, full web projects, web app development">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Milena Cipriani",
+        "jobTitle": "Software Developer",
+        "description": "Full-stack Software Developer with front-end expertise, back-end knowledge, and DevOps experience. Building custom web solutions from start to finish.",
+        "url": "https://milena.work",
+        "image": "https://milena.work/preview.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/milena-cipriani-256812354/",
+          "https://github.com/MilCipriani"
+        ],
+        "knowsAbout": ["Front-end development", "Back-end development", "Full-stack web development", "DevOps", "JavaScript", "Typescript", "Python", "React", "Node.js", "Docker", "CI/CD"]
+      }
+    </script>
+
   </head>
   <body>
     <div id="root"></div>

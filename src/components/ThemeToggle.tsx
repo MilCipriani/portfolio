@@ -12,12 +12,13 @@ export default function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={handleToggle}
       className="themeButton transition-colors"
       title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
-    >
+      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}>
       <span className="">
-        {theme === 'light' ? (<MoonIcon className="w-4 h-4" />) : (<SunIcon className="w-4 h-4" />
+        {theme === 'light' ? (<MoonIcon className="size-4" />) : (<SunIcon className="size-4" />
       )}
       </span>
       
