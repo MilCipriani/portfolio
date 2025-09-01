@@ -1,7 +1,7 @@
 import ThemeToggle from '../components/ThemeToggle';
 import { Link } from 'react-router-dom'
 
-const INTRO_TEXT = "Through client work and startup collaborations, I've learned that effective software extends beyond writing good code — it's about building systems that are reliable, perform well, and genuinely make life easier for both users and developers. I find myself drawn to understanding the full picture, from user interface to infrastructure.";
+const INTRO_TEXT: string = "Through client work and startup collaborations, I've learned that effective software extends beyond writing good code — it's about building systems that are reliable, perform well, and genuinely make life easier for both users and developers. I find myself drawn to understanding the full picture, from user interface to infrastructure.";
 
 export default function Home() {
 

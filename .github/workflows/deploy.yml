@@ -1,0 +1,51 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} #Only 1 job at the time, if a new run starts old jobs are cancelled
+    runs-on: ubuntu-latest #runner environment
+    
+    steps:
+    - name: Checkout #Clone repo into runner
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+
+    - name: Create SPA fallback and static routes
+      run: | #multiline character
+        #404 fallback - if a route doesn't exist take me to my html, react router will think of it client side
+        cp dist/index.html dist/404.html
+
+        #Static route copies
+        ROUTES=("work" "blog" "contacts")
+        for route in "${ROUTES[@]}"; do
+          mkdir -p "dist/$route"
+          cp dist/index.html "dist/$route/index.html"
+        done
+
+        #Prevent GitHub Pages from ignoring files starting with _
+        touch dist/.nojekyll
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main' #only on main
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  #./build if you use create-react-app
+        cname: milena.work

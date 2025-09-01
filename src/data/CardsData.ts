@@ -26,8 +26,8 @@ export const cardsData: CardData[] = [
     id: "1",
     projectName: "Creation of a portfolio website for a client",
     description: "Complete client portfolio solution from concept to deployment. Collaborated closely with the client to design UI/UX in Figma that authentically represented their brand identity, then built a scalable single-page application using Vue.js, PrimeVue, and TypeScript. Implemented automated CI/CD pipelines with GitHub Actions and optimized for SEO, performance, and accessibility standards.",
-    logoPathLight: "MonicaGiglioLogoD.svg",
-    logoPathDark: "MonicaGiglioLogoD.svg",
+    logoPathLight: "MonicaGiglioLogo.svg",
+    logoPathDark: "MonicaGiglioLogo.svg",
     backgroundLight: MonicaGiglioBackgroundL,
     backgroundDark: MonicaGiglioBackgroundD,
     demoUrl: "https://monicagiglio.es",
@@ -42,7 +42,7 @@ export const cardsData: CardData[] = [
     backgroundLight: TLDGradientL,
     backgroundDark: TLDGradientD,
     WIP: true,
-    codeUrl: "https://github.com/user/project2"
+    codeUrl: ""
   },
   {
     id: "3", 

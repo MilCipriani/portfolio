@@ -54,7 +54,7 @@ useEffect(() => {
       {/*I don't conditionally render the toast -> avoid DOM clutter, layout recalculation and I allow smooth fade-in/out animations*/}
       <div className={` transition-opacity duration-500 ease-in-out shadow-lg absolute flex flex-col items-start justify-center bottom-[20%] left-[50%] -translate-x-1/2 max-w-[90vw] px-8 pt-4 pb-12 bg-accent-light dark:bg-accent-dark rounded-2xl z-100
         ${toastVisibility ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          <button aria-label="Close notification" onClick={() => setToastVisible(false)} className='ml-auto py-4 pl-8 pr-0 hover:text-transparent-black dark:hover:text-transparent-white'><X /></button>
+          <button aria-label="Close notification" onClick={() => setToastVisible(false)} className='ml-auto py-4 pl-8 pr-0 hover:text-transparent-black dark:hover:text-transparent-white cursor-pointer'><X /></button>
           
           <div className='flex flex-col items-center gap-4'>
             <SettingsL aria-hidden className='dark:hidden animate-slow-spin w-16 h-16 flex-shrink-0'/>

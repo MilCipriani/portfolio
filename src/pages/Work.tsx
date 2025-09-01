@@ -22,10 +22,15 @@ import Postgres from '../assets/ToolsSVG/postgresql.svg?react'
 const worksTitle = "Here's what I've\n been up to"
 const toolsTitle = "What's in\n my toolkit"
 
-const animation = { duration: 10000, easing: (t:number) => t }
+interface AnimationConfig {
+  duration: number;
+  easing: (t: number) => number;
+}
+
+const animation: AnimationConfig = { duration: 10000, easing: (t) => t }
 
 //Hook to check if screen is <1024px (lg tailwind breakpoint)
-function useIsMobile() {
+function useIsMobile(): boolean {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
