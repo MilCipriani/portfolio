@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import ThemeToggle from '../components/ThemeToggle'
 
-import LogoBGL from '../assets/LogoBGL.svg'
-import LogoBGD from '../assets/LogoBGD.svg'
+import LogoBGL from '../assets/LogoBGL.png'
+import LogoBGD from '../assets/LogoBGD.png'
 import GPS from '../assets/Contacts/GPS.svg?react'
 import Whatsapp from '../assets/Contacts/Whatsapp.svg?react'
 import Mail from '../assets/Contacts/Mail.svg?react'
@@ -36,8 +36,8 @@ useEffect(() => {
         <span className='flex items-center justify-start'><GPS aria-hidden="true" className='w-4 h-auto'/><p>Time Zone CEST (UTC+2)</p></span>
       </section>
        
-      <img src={LogoBGL} aria-hidden className='dark:hidden absolute left-0 top-1/2 -translate-y-1/2 aspect-ratio h-[70vh] z-0'></img>
-      <img src={LogoBGD} aria-hidden className='hidden dark:block absolute left-0 top-1/2 -translate-y-1/2 aspect-ratio h-[70vh] z-0'></img>
+      <img src={LogoBGL} aria-hidden className='dark:hidden absolute left-0 top-1/2 -translate-y-1/2 aspect-square max-h-[70vh] z-0'></img>
+      <img src={LogoBGD} aria-hidden className='hidden dark:block absolute left-0 top-1/2 -translate-y-1/2 aspect-square max-h-[70vh] z-0'></img>
       
       <div className='flex flex-col gap-4 items-end pr-8 md:pr-0 absolute top-1/2 -translate-y-1/2 right-0 xs:right-[5vw] md:right-[10vw] xl:right-0 z-10'>
         <a href={whatsappLink} aria-label="Contact me on Whatsapp" target="_blank" rel="noopener noreferrer">

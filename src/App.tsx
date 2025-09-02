@@ -8,8 +8,6 @@ import Work from './pages/Work.tsx'
 import Blog from './pages/Blog.tsx'
 import Contacts from './pages/Contacts.tsx'
 
-import './App.css'
-
 function AppContent() {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)

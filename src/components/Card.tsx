@@ -15,6 +15,7 @@ export default function Card({ card }:CardProps) {
     logoPathDark,
     backgroundLight,
     backgroundDark,
+    demoText,
     WIP,
     demoUrl,
     codeUrl,
@@ -58,7 +59,7 @@ export default function Card({ card }:CardProps) {
             <div className='w-full absolute bottom-0 translate-y-1/2  px-4 flex'>
             {demoUrl && (
               
-              <a href={demoUrl} aria-label={`View the live demo of ${projectName}`} target="_blank" rel="noopener noreferrer" className='mr-auto p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-2xl uppercase font-medium border-6 border-white dark:border-blue text-black'>Demo</a>
+              <a href={demoUrl} aria-label={`View the live demo of ${projectName}`} target="_blank" rel="noopener noreferrer" className='mr-auto p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-2xl uppercase font-medium border-6 border-white dark:border-blue text-black'>{card.demoText}</a>
             
             )}
             {codeUrl && (

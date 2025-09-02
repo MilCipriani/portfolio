@@ -1,12 +1,12 @@
 
-import MonicaGiglioBackgroundL from "../assets/ProjectCardBG/MonicaGiglioBackgroundL.jpeg"
-import MonicaGiglioBackgroundD from "../assets/ProjectCardBG/MonicaGiglioBackgroundD.jpeg"
-import TLDGradientL from "../assets/ProjectCardBG/TLDGradientL.png"
-import TLDGradientD from "../assets/ProjectCardBG/TLDGradientD.png"
-import ContainerizedAppBGD from "../assets/ProjectCardBG/GradientContainerAppD.jpeg"
-import ContainerizedAppBGL from "../assets/ProjectCardBG/GradientContainerAppL.jpeg"
-import PortfolioL from "../assets/ProjectCardBG/PortfolioL.jpeg"
-import PortfolioD from "../assets/ProjectCardBG/PortfolioD.jpeg"
+import MonicaGiglioBackgroundL from "../assets/ProjectCardBG/MonicaGiglioBackgroundL.webp"
+import MonicaGiglioBackgroundD from "../assets/ProjectCardBG/MonicaGiglioBackgroundD.webp"
+import TLDGradientL from "../assets/ProjectCardBG/TLDGradientL.webp"
+import TLDGradientD from "../assets/ProjectCardBG/TLDGradientD.webp"
+import ContainerizedAppBGD from "../assets/ProjectCardBG/GradientContainerAppD.webp"
+import ContainerizedAppBGL from "../assets/ProjectCardBG/GradientContainerAppL.webp"
+import PortfolioL from "../assets/ProjectCardBG/PortfolioL.webp"
+import PortfolioD from "../assets/ProjectCardBG/PortfolioD.webp"
 
 export interface CardData {
   id: string;
@@ -18,6 +18,7 @@ export interface CardData {
   backgroundDark: string,
   WIP?: boolean;
   demoUrl?: string;
+  demoText: string;
   codeUrl?: string;
 }
 
@@ -31,6 +32,7 @@ export const cardsData: CardData[] = [
     backgroundLight: MonicaGiglioBackgroundL,
     backgroundDark: MonicaGiglioBackgroundD,
     demoUrl: "https://monicagiglio.es",
+    demoText: "Live",
     codeUrl: "https://github.com/MilCipriani/MonicaGiglioPortfolio"
   },
   {
@@ -41,6 +43,7 @@ export const cardsData: CardData[] = [
     logoPathDark: "TLDIconL.svg",
     backgroundLight: TLDGradientL,
     backgroundDark: TLDGradientD,
+    demoText: "",
     WIP: true,
     codeUrl: ""
   },
@@ -52,6 +55,7 @@ export const cardsData: CardData[] = [
     logoPathDark: "ContainerizationLogoD.svg",
     backgroundLight: ContainerizedAppBGL,
     backgroundDark: ContainerizedAppBGD,
+    demoText: "",
     codeUrl: "https://github.com/MilCipriani/ContainerizedWebApp/tree/main"
   },
   {
@@ -62,6 +66,7 @@ export const cardsData: CardData[] = [
     logoPathDark: "MilenaD.svg",
     backgroundLight: PortfolioL,
     backgroundDark: PortfolioD,
+    demoText: "",
     WIP: true,
     codeUrl: "https://github.com/MilCipriani/portfolio"
   },
