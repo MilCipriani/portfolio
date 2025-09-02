@@ -10,8 +10,8 @@ html element*/
   --breakpoint-xxs: 24rem; /*384px*/
   --breakpoint-xs: 30rem; /*480px*/
 
-  --background-image-home-image: url('/src/assets/BGL.svg');
-  --background-image-home-image-dark: url('/src/assets/BGD.svg');
+  --background-image-home-image: url('/src/assets/BGL.webp');
+  --background-image-home-image-dark: url('/src/assets/BGD.webp');
 
   --color-black: #1E1E1E;
   --color-white: #F3F3F3;
