@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { CardData } from "../data/CardsData"
+import { useLanguage } from '../translation/index'
 
 import CodeSVG from '../assets/code.svg?react'
 
@@ -9,8 +10,6 @@ interface CardProps {
 
 export default function Card({ card }:CardProps) {
   const {
-    projectName,
-    description,
     logoPathLight,
     logoPathDark,
     backgroundLight,
@@ -38,6 +37,7 @@ export default function Card({ card }:CardProps) {
   }, []);
 
   const currentBackground = isDark ? backgroundDark : backgroundLight;
+  const { t } = useLanguage()
 
 
   return (
@@ -59,20 +59,20 @@ export default function Card({ card }:CardProps) {
             <div className='w-full absolute bottom-0 translate-y-1/2  px-4 flex'>
             {demoUrl && (
               
-              <a href={demoUrl} aria-label={`View the live demo of ${projectName}`} target="_blank" rel="noopener noreferrer" className='mr-auto p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-2xl uppercase font-medium border-6 border-white dark:border-blue text-black'>{demoText}</a>
+              <a href={demoUrl} aria-label='Live Demo' target="_blank" rel="noopener noreferrer" className='flex items-center justify-center mr-auto p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-[22px] uppercase font-medium border-6 border-white dark:border-blue text-black'>{demoText}</a>
             
             )}
             {codeUrl && (
               
-              <a href={codeUrl} aria-label='View the source code on GitHub' target="_blank" rel="noopener noreferrer" className='ml-auto p-2 bg-black dark:bg-white hover:bg-secondary-light rounded-2xl uppercase font-medium text-accent-light dark:text-accent-dark border-6 border-white dark:border-blue font-mono'><CodeSVG /></a>
+              <a href={codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='ml-auto p-2 bg-black dark:bg-white hover:bg-secondary-light rounded-[22px] uppercase font-medium text-accent-light dark:text-accent-dark border-6 border-white dark:border-blue font-mono'><CodeSVG /></a>
             
             )}
             </div>
             
         </div>
         <div className="text pt-4">
-            <h2 id={`card-title-${card.id}`} className='font-serif text-xl xxs:text-2xl my-4 uppercase'>{projectName}</h2>
-            <p className='pcard xxs:text-base text-justify'>{description}</p>
+            <h2 id={`card-title-${card.id}`} className='font-serif text-xl xxs:text-2xl my-4 uppercase'>{t(card.projectName)}</h2>
+            <p className='pcard xxs:text-base text-justify'>{t(card.description)}</p>
         </div>
 
     </figure>

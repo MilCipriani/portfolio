@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import { useLanguage } from '../translation/index'
+
 import { Link } from "react-router-dom"
 
 import Card from '../components/Card'
 import { cardsData } from '../data/CardsData';
 import ThemeToggle from '../components/ThemeToggle';
+import LanguageToggle from "../components/LanguageToggle"
 
 import Py from '../assets/ToolsSVG/python.svg?react'
 import Ts from '../assets/ToolsSVG/typescript.svg?react'
@@ -18,9 +21,6 @@ import Bash from '../assets/ToolsSVG/Bash.svg?react'
 import Git from '../assets/ToolsSVG/git.svg?react'
 import Docker from '../assets/ToolsSVG/docker.svg?react'
 import Postgres from '../assets/ToolsSVG/postgresql.svg?react'
-
-const worksTitle = "Here's what I've\n been up to"
-const toolsTitle = "What's in\n my toolkit"
 
 interface AnimationConfig {
   duration: number;
@@ -50,81 +50,82 @@ function useIsMobile(): boolean {
 }
 
 export default function Work() {
-const isMobile = useIsMobile()
+  const { t } = useLanguage()
+  const isMobile = useIsMobile()
 
-const [currentSlide, setCurrentSlide] = useState(0)
-const [loaded, setLoaded] = useState(false)
-const [sliderRef, instanceRef] = useKeenSlider({
-  initial: 0,
-  mode: "free-snap",
-  loop: true,
-  breakpoints: {
-      "(min-width: 400px)": {
-      slides: { perView: 1, spacing: 10 },
-      },
-      "(min-width: 720px)": {
-      slides: { perView: 2, spacing: 10 },
-      },
-      "(min-width: 1000px)": {
-      slides: { perView: 3, spacing: 10 },
-      },
-      "(min-width: 1280px)": {
-      slides: { perView: 3, spacing: 15 },
-      },
-      "(min-width: 1480px)": {
-      slides: { perView: 4, spacing: 10 },
-      },
-  },
-  slideChanged(slider) {
-    setCurrentSlide(slider.track.details.rel)
-  },
-  created() {
-    setLoaded(true)
-  },
-})
-
-const [secondSliderRef] = useKeenSlider({
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [loaded, setLoaded] = useState(false)
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    mode: "free-snap",
     loop: true,
-    renderMode: "performance",
-    drag: true,
     breakpoints: {
-      "(min-width: 200px)": {
+        "(min-width: 400px)": {
+        slides: { perView: 1, spacing: 10 },
+        },
+        "(min-width: 720px)": {
+        slides: { perView: 2, spacing: 10 },
+        },
+        "(min-width: 1000px)": {
         slides: { perView: 3, spacing: 10 },
+        },
+        "(min-width: 1280px)": {
+        slides: { perView: 3, spacing: 15 },
+        },
+        "(min-width: 1480px)": {
+        slides: { perView: 4, spacing: 10 },
+        },
+    },
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel)
+    },
+    created() {
+      setLoaded(true)
+    },
+  })
+
+  const [secondSliderRef] = useKeenSlider({
+      loop: true,
+      renderMode: "performance",
+      drag: true,
+      breakpoints: {
+        "(min-width: 200px)": {
+          slides: { perView: 3, spacing: 10 },
+        },
+        "(min-width: 400px)": {
+          slides: { perView: 4, spacing: 15 },
+        },
+        "(min-width: 720px)": {
+          slides: { perView: 6, spacing: 15 },
+        },
       },
-      "(min-width: 400px)": {
-        slides: { perView: 4, spacing: 15 },
+      created(s) {
+        s.moveToIdx(5, true, animation)
       },
-      "(min-width: 720px)": {
-        slides: { perView: 6, spacing: 15 },
+      updated(s) {
+        s.moveToIdx(s.track.details.abs + 5, true, animation)
       },
-    },
-    created(s) {
-      s.moveToIdx(5, true, animation)
-    },
-    updated(s) {
-      s.moveToIdx(s.track.details.abs + 5, true, animation)
-    },
-    animationEnded(s) {
-      s.moveToIdx(s.track.details.abs + 5, true, animation)
-    },
-  }
-)
+      animationEnded(s) {
+        s.moveToIdx(s.track.details.abs + 5, true, animation)
+      },
+    }
+  )
 
   return (
     <div className="flex flex-col gap-16 xs:gap-24 xxs:py-16 pt-8 pb-16">
       <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="projects-title">
-        <h1 id="projects-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{worksTitle}</h1>
+        <h1 id="projects-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section1.h1')}</h1>
 
         <div className="flex flex-col justify-center items-center">
           {/*Projects' carousel*/}
-          <div  ref={sliderRef} className="keen-slider" aria-label="All my projects" role="group">
+          <div  ref={sliderRef} className="keen-slider" aria-label={t('routes.work.aria.section1.carousel')} role="group">
             {cardsData.map((card) => (<div key={card.id} className="keen-slider__slide">
                                         <Card  card={card}/>
                                       </div> ))}        
           </div>
           {/*Navigation dots*/}
           {loaded && instanceRef.current && (
-              <div className="dots" aria-label="Navigation dots for project's carousel display">
+              <div className="dots" aria-label={t('routes.work.aria.section1.dots')}>
               {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
                   return (
                   <button
@@ -142,11 +143,11 @@ const [secondSliderRef] = useKeenSlider({
       </section>
       
       <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="tools-title">
-        <h1 id="tools-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{toolsTitle}</h1>
+        <h1 id="tools-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section2.h1')}</h1>
 
         {/*Toolkit carousel for phones and tables*/ }
         {isMobile && (
-          <div  ref={secondSliderRef} className="keen-slider my-8" aria-label="What tools, frameworks and languages I can use" role="group">
+          <div  ref={secondSliderRef} className="keen-slider my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
             <div className="keen-slider__slide flex justify-center items-center" aria-label="Python" role="img"><Py className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"/></div>
             <div className="keen-slider__slide flex justify-center items-center" aria-label="Typescript" role="img"><Ts className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
             <div className="keen-slider__slide flex justify-center items-center" aria-label="Nodejs" role="img"><Node className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
@@ -163,7 +164,7 @@ const [secondSliderRef] = useKeenSlider({
 
         {/*Toolkit static display for desktops and bigger screens*/ }
         {!isMobile && (
-          <div className="flex flex-col justify-center items-center w-full gap-16 px-16 my-8" aria-label="What tools, frameworks and languages I can use" role="group">
+          <div className="flex flex-col justify-center items-center w-full gap-16 px-16 my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
             <div className="flex justify-between items-center gap-16">
               <figure role="group" aria-label="Python" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
@@ -260,14 +261,14 @@ const [secondSliderRef] = useKeenSlider({
         )}
         
 
-        <Link to="/contacts" className="button-primary uppercase self-center" aria-label="Go to the contact page to get in touch">Let's build something together!</Link>
+        <Link to="/contacts" className="button-primary uppercase self-center" aria-label={t('routes.work.aria.section2.button')}>{t('routes.work.section2.button')}</Link>
 
       </section>
 
 
 			<footer className='hidden md:flex justify-end items-center gap-4'>
-				<button disabled type="button" aria-disabled="true" aria-label='Change language - in development' className='bg-transparent uppercase'>EN</button>
-				<ThemeToggle/> 
+				<LanguageToggle />
+        <ThemeToggle/> 
 			</footer> 
 
     </div>
