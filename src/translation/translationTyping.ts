@@ -139,8 +139,8 @@ export type TranslationKey =
   | 'routes.contacts.aria.github'
   | 'routes.contacts.aria.closeNotification'
 
-  | 'routes.phone.work'
-  | 'routes.phone.blog'
-  | 'routes.phone.contacts'
-  | 'routes.phone.aria.x'
-  | 'routes.phone.aria.home'
+  | 'routes.phoneMenu.work'
+  | 'routes.phoneMenu.blog'
+  | 'routes.phoneMenu.contacts'
+  | 'routes.phoneMenu.aria.x'
+  | 'routes.phoneMenu.aria.home'

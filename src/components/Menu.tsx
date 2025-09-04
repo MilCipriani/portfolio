@@ -29,12 +29,12 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
         <button
           onClick={() => setIsMenuOpen(false)}
           className="trasp"
-          aria-label={t('routes.phone.aria.x')}
+          aria-label={t('routes.phoneMenu.aria.x')}
         >
           <X aria-hidden className="size-5 text-black dark:text-white"/>
         </button>
 
-        <Link aria-label={t('routes.phone.aria.home')} to="/" onClick={handleLinkClick} >Milena</Link>
+        <Link aria-label={t('routes.phoneMenu.aria.home')} to="/" onClick={handleLinkClick} >Milena</Link>
 
         <hr className="w-full my-4 border-t border-black dark:border-white" />
 
@@ -46,7 +46,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
                 onClick={handleLinkClick}
                 className="hover:opacity-70 transition-opacity"
               >
-                Work
+                {t('routes.phoneMenu.work')}
               </Link>
             </li>
             <li className="transform transition-transform duration-300 hover:scale-110">
@@ -55,7 +55,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
                 onClick={handleLinkClick}
                 className="hover:opacity-70 transition-opacity"
               >
-                Blog
+                {t('routes.phoneMenu.blog')}
               </Link>
             </li>
             <li className="transform transition-transform duration-300 hover:scale-110">
@@ -64,7 +64,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
                 onClick={handleLinkClick}
                 className="hover:opacity-70 transition-opacity"
               >
-                Contacts
+                {t('routes.phoneMenu.contacts')}
               </Link>
             </li>
             <li className="transform transition-transform duration-300 hover:scale-110" onClick={handleLinkClick}><LanguageToggle /></li>
