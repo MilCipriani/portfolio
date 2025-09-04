@@ -1,5 +1,8 @@
+import { useLanguage } from '../translation/index'
 import { Link } from 'react-router-dom'
+
 import ThemeToggle from './ThemeToggle'
+import LanguageToggle from './LanguageToggle'
 
 import X from '../assets/X.svg?react'
 
@@ -13,6 +16,8 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
     setIsMenuOpen(false)
   }
 
+  const { t } = useLanguage()
+
   return (
     <div
         className={`fixed inset-0 bg-white dark:bg-blue z-[100] menu-transition transition-all duration-800 ease-in-out flex items-center justify-center ${
@@ -24,12 +29,12 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
         <button
           onClick={() => setIsMenuOpen(false)}
           className="trasp"
-          aria-label="Close menu"
+          aria-label={t('routes.phone.aria.x')}
         >
           <X aria-hidden className="size-5 text-black dark:text-white"/>
         </button>
 
-        <Link aria-label="Go to home page" to="/" onClick={handleLinkClick} >Milena</Link>
+        <Link aria-label={t('routes.phone.aria.home')} to="/" onClick={handleLinkClick} >Milena</Link>
 
         <hr className="w-full my-4 border-t border-black dark:border-white" />
 
@@ -62,7 +67,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
                 Contacts
               </Link>
             </li>
-            <button disabled type="button" aria-disabled="true" aria-label='Change language - in development' className='bg-transparent uppercase'>EN</button>
+            <li className="transform transition-transform duration-300 hover:scale-110" onClick={handleLinkClick}><LanguageToggle /></li>
             <li className="transform transition-transform duration-300 hover:scale-110" onClick={handleLinkClick}><ThemeToggle /></li>
 
             <li className='mt-16 transform transition-transform duration-300 text-base text-transparent-black dark:text-transparent-white normal-case'>© Milena Cipriani</li>
