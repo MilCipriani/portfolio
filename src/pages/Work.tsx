@@ -60,7 +60,7 @@ export default function Work() {
     mode: "free-snap",
     loop: true,
     breakpoints: {
-        "(min-width: 400px)": {
+        "(min-width: 100px)": {
         slides: { perView: 1, spacing: 10 },
         },
         "(min-width: 720px)": {
