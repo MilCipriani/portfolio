@@ -29,7 +29,7 @@ export default {
           },
           card1: {
             projectName: "The Left Drawer",
-            description: "Currently in development - A comprehensive NAS solution, using a Raspberry Pi 4 and Alpine Linux. Ionic React mobile app for remote file management. Implementing Docker orchestration, monitoring stack (Grafana/Prometheus), automated backups, and security measures including VPN access. If this sounds interesting, check the README in the source code for the complete roadmap and progress updates!",
+            description: "A production-ready NAS solution built on a Raspberry Pi 4. Features include a custom React Native mobile app, CLI tool and React Web App for remote file management, Docker-based service orchestration, a full monitoring stack (Prometheus, Grafana), automated backups, and VPN-secured remote access. Designed as a DevOps learning project with real-world reliability requirements. If this sounds interesting, check the README in the source code for the complete roadmap and progress updates!",
           },
           card2: {
             projectName: "Containerization App",
