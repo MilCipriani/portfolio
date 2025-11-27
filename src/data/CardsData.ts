@@ -8,6 +8,8 @@ import ContainerizedAppBGD from "../assets/ProjectCardBG/GradientContainerAppD.w
 import ContainerizedAppBGL from "../assets/ProjectCardBG/GradientContainerAppL.webp"
 import PortfolioL from "../assets/ProjectCardBG/PortfolioL.webp"
 import PortfolioD from "../assets/ProjectCardBG/PortfolioD.webp"
+import InlumineL from "../assets/ProjectCardBG/InlumineL.webp"
+import InlumineD from "../assets/ProjectCardBG/InlumineD.webp"
 
 export interface CardData {
   id: string;
@@ -24,6 +26,18 @@ export interface CardData {
 }
 
 export const cardsData: CardData[] = [
+  {
+    id: "0",
+    projectName: "routes.work.section1.carousel.card4.projectName",
+    description: "routes.work.section1.carousel.card4.description",
+    logoPathLight: "/InlumineLogo.svg",
+    logoPathDark: "/InlumineLogo.svg",
+    backgroundLight: InlumineL,
+    backgroundDark: InlumineD,
+    demoUrl: "https://inlumine.es",
+    demoText: "Live",
+    codeUrl: "https://github.com/MilCipriani/inlumine"
+  },
   {
     id: "1",
     projectName: "routes.work.section1.carousel.card0.projectName",

@@ -39,6 +39,10 @@ export default {
             projectName: "My personal portfolio",
             description: "The website you're using right now! Crafted with React, TypeScript, and Tailwind CSS. Responsive design, accessibility compliance, and dynamic theming (light/dark modes). Kept dependencies minimal, using only Keen Sliders for carousels. Deployed with automated CI/CD through GitHub Actions to my custom domain.",
           },
+          card4: {
+            projectName: "Training Center Website",
+            description: "Professional website for a health and wellness training center offering courses and seminars for industry professionals. Built with React, TypeScript, and Tailwind CSS, featuring scalable multi-language support (Italian/Spanish) with instant language switching. Redesigned and modernized the brand's visual identity through multiple iterations, balancing client vision with UX best practices. Deployed to GitHub Pages with automated CI/CD pipelines.",
+          },
         },
       },
       section2: {

@@ -39,6 +39,10 @@ export interface TranslationStructure {
             projectName: string
             description: string
           }
+          card4: {
+            projectName: string
+            description: string
+          }
         }
       }
       section2: {
@@ -115,6 +119,8 @@ export type TranslationKey =
   | 'routes.work.section1.carousel.card2.description'
   | 'routes.work.section1.carousel.card3.projectName'
   | 'routes.work.section1.carousel.card3.description'
+  | 'routes.work.section1.carousel.card4.projectName'
+  | 'routes.work.section1.carousel.card4.description'
 
   | 'routes.work.section2.h1'
   | 'routes.work.section2.button'
