@@ -39,6 +39,10 @@ export default {
             projectName: "Portfolio personale",
             description: "Il sito web che stai usando proprio ora! Realizzato con React, TypeScript e Tailwind CSS. Design responsivo, conformità all'accessibilità e tema dinamico (dark/light modes). Ho mantenuto le dipendenze al minimo, usando solo Keen Sliders per i caroselli. Hosting con CI/CD automatizzati tramite GitHub Actions su dominio personale.",
           },
+          card4: {
+            projectName: "Sito Centro Formazione",
+            description: "Sito web professionale per un centro di formazione nel settore salute e benessere che offre corsi e seminari per professionisti. Realizzato con React, TypeScript e Tailwind CSS, con supporto multilingua scalabile (italiano/spagnolo) e cambio lingua istantaneo. Ho modernizzato l'identità visiva del brand attraverso molteplici iterazioni, bilanciando la visione del cliente con best practices UX. Deployment su GitHub Pages con pipeline CI/CD automatizzate.",
+          },
         },
       },
       section2: {
