@@ -69,18 +69,12 @@ export default {
     contacts: {
       h1: "Let's chat!",
       p: "Time Zone CEST (UTC+2)",
-      toast: {
-        h2: "Whoops!",
-        p0: "This website is still in development.",
-        p1: "I will add a contact form soon, but until then here's my mail!"
-      },
       aria: {
         whatsapp: "Text me on Whatsapp",
-        mail: "Mail form in development - open notification",
         linkedin: "Visit my Linkedin profile",
         github: "Visit my GitHub profile",
-        closeNotification: "Close notification"
-      }
+      },
+      formAnswer: "Message sent!",
     },
     phoneMenu: {
       work: "Work",

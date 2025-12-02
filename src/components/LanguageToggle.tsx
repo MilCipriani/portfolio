@@ -16,7 +16,7 @@ export default function LanguageToggle() {
     <button
       type="button"
       onClick={toggleLanguage}
-      className="transition-colors px-4"
+      className="transition-colors px-4 cursor-pointer"
       title={`Switch to ${currentLanguage === 'en' ? 'Italian' : 'English'}`}
       aria-label={`Switch to ${currentLanguage === 'en' ? 'Italian' : 'English'} - Traduci in ${currentLanguage === 'en' ? 'Italiano' : 'Inglese'}`}>
       <span className="">
