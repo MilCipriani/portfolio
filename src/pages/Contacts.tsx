@@ -4,21 +4,15 @@ import { useLanguage } from '../translation/index'
 import LanguageToggle from '../components/LanguageToggle';
 import ThemeToggle from '../components/ThemeToggle'
 
-import LogoBGL from '../assets/LogoBGL.png'
-import LogoBGD from '../assets/LogoBGD.png'
 import GPS from '../assets/Contacts/GPS.svg?react'
 import Whatsapp from '../assets/Contacts/Whatsapp.svg?react'
-import Mail from '../assets/Contacts/Mail.svg?react'
 import Linkedin from '../assets/Contacts/Linkedin.svg?react'
 import Github from '../assets/Contacts/Github.svg?react'
 
-import SettingsL from '../assets/settingL.svg?react'
-import SettingsD from '../assets/settingD.svg?react'
-import X from '../assets/X.svg?react'
+import ContactForm from '../components/ContactForm';
 
 export default function Contacts() {
   const [whatsappLink, setWhatsappLink] = useState('')
-  const [toastVisibility, setToastVisible] = useState(false)
   const { t } = useLanguage()
 
 
@@ -35,47 +29,25 @@ export default function Contacts() {
 
 
   return (
-    <main className='h-full flex flex-col justify-between pt-8 pb-16 xxs:py-16 relative'>
+    <main className='h-full flex flex-col gap-8 justify-between pt-8 pb-16 xxs:py-16 relative'>
       <section aria-labelledby='title' className='flex flex-col items-start z-10'>
         <h1 id="title" className="font-serif uppercase text-center text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.contacts.h1')}</h1>
         <span className='flex items-center justify-start'><GPS aria-hidden="true" className='w-4 h-auto'/><p>{t('routes.contacts.p')}</p></span>
       </section>
-       
-      <img src={LogoBGL} aria-hidden className='dark:hidden absolute left-0 top-1/2 -translate-y-1/2 aspect-square max-h-[70vh] z-0'></img>
-      <img src={LogoBGD} aria-hidden className='hidden dark:block absolute left-0 top-1/2 -translate-y-1/2 aspect-square max-h-[70vh] z-0'></img>
-      
-      <div className='flex flex-col gap-4 items-end pr-8 md:pr-0 absolute top-1/2 -translate-y-1/2 right-0 xs:right-[5vw] md:right-[10vw] xl:right-0 z-10'>
-        <a href={whatsappLink} aria-label={t('routes.contacts.aria.whatsapp')} target="_blank" rel="noopener noreferrer">
-          <Whatsapp aria-hidden="true" className='w-14 h-14 xxs:w-16 xxs:h-16 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/>
-        </a>
 
-        <button onClick={() => setToastVisible(true)} aria-label={t('routes.contacts.aria.mail')}>
-          <Mail aria-hidden="true" className='cursor-pointer w-14 h-14 xxs:w-16 xxs:h-16 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/>
-        </button>
-        <a href='https://www.linkedin.com/in/milena-cipriani-256812354/' aria-label={t('routes.contacts.aria.linkedin')} target="_blank" rel="noopener noreferrer"><Linkedin aria-hidden="true" className='w-14 h-14 xxs:w-16 xxs:h-16 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
-        <a href='https://github.com/MilCipriani' aria-label={t('routes.contacts.aria.github')} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" className='w-14 h-14 xxs:w-16 xxs:h-16 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
+      <div className='flex md:pt-0 md:flex-col gap-8 md:gap-4 md:items-end items-center justify-center md:absolute md:top-1/2 md:-translate-y-1/2 right-0 z-100'>
+        <a href={whatsappLink} aria-label={t('routes.contacts.aria.whatsapp')} target="_blank" rel="noopener noreferrer">
+          <Whatsapp aria-hidden="true" className='md:w-14 md:h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/>
+        </a>
+        <a href='https://www.linkedin.com/in/milena-cipriani-256812354/' aria-label={t('routes.contacts.aria.linkedin')} target="_blank" rel="noopener noreferrer"><Linkedin aria-hidden="true" className='w-14 h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
+        <a href='https://github.com/MilCipriani' aria-label={t('routes.contacts.aria.github')} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" className='w-14 h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
       </div>
 
-      {/*I don't conditionally render the toast -> avoid DOM clutter, layout recalculation and I allow smooth fade-in/out animations*/}
-      <div className={` transition-opacity duration-500 ease-in-out shadow-lg absolute flex flex-col items-start justify-center bottom-[20%] left-[50%] -translate-x-1/2 max-w-[90vw] px-8 pt-4 pb-12 bg-accent-light dark:bg-accent-dark rounded-2xl z-100
-        ${toastVisibility ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          <button aria-label={t('routes.contacts.aria.closeNotification')} onClick={() => setToastVisible(false)} className='ml-auto py-4 pl-8 pr-0 hover:text-transparent-black dark:hover:text-transparent-white cursor-pointer'><X /></button>
-          
-          <div className='flex flex-col items-center gap-4'>
-            <SettingsL aria-hidden className='dark:hidden animate-slow-spin w-16 h-16 flex-shrink-0'/>
-            <SettingsD aria-hidden className='hidden dark:block animate-slow-spin w-16 h-16 flex-shrink-0'/>
+      <ContactForm />
+       
+      
 
-            <div className='flex flex-col  gap-4'>
-              <h2 className='text-3xl font-serif'>{t('routes.contacts.toast.h2')}</h2>
-              <div>
-                <p className='text-lg'>{t('routes.contacts.toast.p0')}</p>
-                <p className='font-extralight text-base'>{t('routes.contacts.toast.p1')}</p>
-              </div>
-              
-              <p className='text-lg font-medium'>milenacipriani.mail@gmail.com</p>
-            </div>
-          </div>
-        </div>
+      
                
       <footer className='hidden md:flex justify-end items-center gap-4 z-10'>
         <span className='hidden sm:block mr-auto pl-4'>© Milena Cipriani</span>

@@ -69,18 +69,12 @@ export interface TranslationStructure {
     contacts:{
       h1: string
       p: string
-      toast: {
-        h2: string
-        p0: string
-        p1: string
-      }
       aria: {
         whatsapp: string
-        mail: string
         linkedin: string
         github: string
-        closeNotification: string
       }
+      formAnswer: string
     },
     phoneMenu: {
       work: string
@@ -135,15 +129,10 @@ export type TranslationKey =
 
   | 'routes.contacts.h1'
   | 'routes.contacts.p'
-  | 'routes.contacts.toast.h2'
-  | 'routes.contacts.toast.p0'
-  | 'routes.contacts.toast.p1'
-  | 'routes.contacts.toast.p2'
   | 'routes.contacts.aria.whatsapp'
-  | 'routes.contacts.aria.mail'
   | 'routes.contacts.aria.linkedin'
   | 'routes.contacts.aria.github'
-  | 'routes.contacts.aria.closeNotification'
+  | 'routes.contacts.formAnswer'
 
   | 'routes.phoneMenu.work'
   | 'routes.phoneMenu.blog'

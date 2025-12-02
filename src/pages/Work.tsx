@@ -58,7 +58,7 @@ export default function Work() {
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     mode: "free-snap",
-    loop: false,
+    loop: true,
     breakpoints: {
         "(min-width: 100px)": {
         slides: { perView: 1, spacing: 15 },
