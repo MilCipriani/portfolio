@@ -34,8 +34,8 @@ export default function ContactForm() {
       <input type="email" placeholder='Email' name="email" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
       <input type="text" placeholder='Object' name="object" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
       <textarea name="message" placeholder='Message' required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'></textarea>
-      <button type="submit" className='flex items-center w-fit bg-black dark:bg-[#251518] text-white p-4 rounded-2xl cursor-pointer uppercase font-[400]'>Send Message</button>
-      <span className='rounded-xl font-[600] py-2 px-3 text-black'>{result}</span>
+      <button type="submit" className='flex items-center w-fit bg-black dark:bg-blue text-white p-4 rounded-2xl cursor-pointer uppercase font-normal'>{t('routes.contacts.submitForm')}</button>
+      <span className='rounded-xl font-semibold py-2 px-3 text-black'>{result}</span>
     </form>
   );
 }

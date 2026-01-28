@@ -69,6 +69,7 @@ export interface TranslationStructure {
     contacts:{
       h1: string
       p: string
+      submitForm: string
       aria: {
         whatsapp: string
         linkedin: string
@@ -129,6 +130,7 @@ export type TranslationKey =
 
   | 'routes.contacts.h1'
   | 'routes.contacts.p'
+  | 'routes.contacts.submitForm'
   | 'routes.contacts.aria.whatsapp'
   | 'routes.contacts.aria.linkedin'
   | 'routes.contacts.aria.github'

@@ -69,6 +69,7 @@ export default {
     contacts: {
       h1: "Let's chat!",
       p: "Time Zone CEST (UTC+2)",
+      submitForm: 'Submit',
       aria: {
         whatsapp: "Text me on Whatsapp",
         linkedin: "Visit my Linkedin profile",
