@@ -69,6 +69,7 @@ export default {
     contacts:{
       h1: "Mi trovi qui!",
       p: "Fuso Orario CEST (UTC+2)",
+      submitForm: 'Invia',
       aria: {
         whatsapp: "Scrivimi un messaggio su Whatsapp",
         linkedin: "Visita il mio profilo Linkedin",
