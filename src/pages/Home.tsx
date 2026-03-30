@@ -10,15 +10,24 @@ export default function Home() {
 const { t } = useLanguage()
 
   return (
-    <main className='h-full flex flex-col gap-18 py-8 xs:py-18'>
-      <section className='flex flex-col items-center justify-between h-full max-h-160 lg:w-1/2'>
-        <h1 className="font-serif uppercase text-center text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.home.hello')}<br className='md:hidden'/>{t('routes.home.IamMilena')}</h1>
-        <h2 className='text-justify text-xl md:text-2xl lg:text-4xl'>{t('routes.home.h2')}</h2>
-        <p className='text-justify whitespace-pre-line xxs:text-base'>{t('routes.home.p')}</p>
+    <main className='h-full flex flex-col justify-center items-center sm:gap-18 py-8 xs:py-18'>
+      <section className='flex flex-col items-center justify-between h-full max-h-124 sm:max-h-160 lg:w-1/2'>
+        <div className='flex flex-col justify-center items-center gap-3 sm:gap-8'>
+          <h1 className="font-serif uppercase text-center text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.home.h1')}</h1>
+          <h2 className='text-center text-2xl lg:text-4xl font-medium'>{t('routes.home.h2')}</h2>
+        </div>
+        
+        <h3 className='text-center text-lg md:text-xl lg:text-2xl'>{t('routes.home.h3')}</h3>
+        <div className='flex flex-col items-center justify-center gap-7'>
+          <div className='flex flex-col items-center justify-center gap-2 sm:gap-4'>
+            <p className='text-center whitespace-pre-line sm:text-base'>{t('routes.home.p1')}</p>
+            <p className='text-center sm:text-base font-semibold'>{t('routes.home.p2')}</p>
+          </div>
+          <Link to="/work" className="button-primary bg-black dark:bg-white text-accent-light dark:text-accent-dark uppercase" role='button'>{t('routes.home.button')}</Link>
+        </div>
+      </section>
 
-        <Link to="/work" className="button-primary uppercase" role='button'>{t('routes.home.button')}</Link>
-      </section> 
-      <footer className='hidden md:flex justify-end items-center gap-4'>
+      <footer className='hidden md:flex justify-end items-center gap-4 ml-auto'>
         <LanguageToggle />
         <ThemeToggle /> 
       </footer> 

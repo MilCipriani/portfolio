@@ -49,7 +49,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
                 {t('routes.phoneMenu.work')}
               </Link>
             </li>
-            <li className="transform transition-transform duration-300 hover:scale-110">
+            {/*<li className="transform transition-transform duration-300 hover:scale-110">
               <Link 
                 to="/blog" 
                 onClick={handleLinkClick}
@@ -57,7 +57,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
               >
                 {t('routes.phoneMenu.blog')}
               </Link>
-            </li>
+            </li>*/}
             <li className="transform transition-transform duration-300 hover:scale-110">
               <Link 
                 to="/contacts" 

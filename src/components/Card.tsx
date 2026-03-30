@@ -10,6 +10,7 @@ interface CardProps {
 
 export default function Card({ card }:CardProps) {
   const {
+    tags,
     logoPathLight,
     logoPathDark,
     backgroundLight,
@@ -29,7 +30,7 @@ export default function Card({ card }:CardProps) {
     
     checkDarkMode();
     
-    // Watch for changes
+    //Watch for changes
     const observer = new MutationObserver(checkDarkMode);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     
@@ -41,7 +42,7 @@ export default function Card({ card }:CardProps) {
 
 
   return (
-    <figure className="card flex flex-col mb-16" role="group" aria-labelledby={`card-title-${card.id}`}>
+    <figure className="card flex flex-col mb-8" role="group" aria-labelledby={`card-title-${card.id}`}>
         <div className={`relative flex flex-col justify-center items-center py-8 sm:py-16 bg-cover bg-center rounded-xs h-60 md:h-60`}
         style={{
           backgroundImage: `url(${currentBackground})`,
@@ -71,8 +72,16 @@ export default function Card({ card }:CardProps) {
             
         </div>
         <div className="text pt-4">
-            <h2 id={`card-title-${card.id}`} className='font-serif text-xl xxs:text-2xl my-4 uppercase'>{t(card.projectName)}</h2>
-            <p className='pcard xxs:text-base text-justify'>{t(card.description)}</p>
+          <div className='flex flex-col items-start justify-center my-4 gap-1'>
+            <h2 id={`card-title-${card.id}`} className='font-serif text-xl xxs:text-2xl uppercase'>{t(card.projectName)}</h2>
+            <div className="flex gap-2 flex-wrap">
+              {tags.map((tag) => (
+                <div key={tag} className="bg-secondary-light rounded-2xl px-2 py-1 text-[#8056A1] font-sans text-sm font-normal uppercase">{tag}</div>))
+              }
+            </div>
+          </div>
+            
+            <p className='pcard sm:text-base text-justify whitespace-pre-line'>{t(card.description)}</p>
         </div>
 
     </figure>
