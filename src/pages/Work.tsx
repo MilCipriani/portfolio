@@ -6,13 +6,15 @@ import { useLanguage } from '../translation/index'
 import { Link } from "react-router-dom"
 
 import Card from '../components/Card'
-import { cardsData } from '../data/CardsData';
+import { cardsData, selectedProject } from '../data/CardsData';
 import ThemeToggle from '../components/ThemeToggle';
 import LanguageToggle from "../components/LanguageToggle"
 
+import CodeSVG from '../assets/code.svg?react'
 import Py from '../assets/ToolsSVG/python.svg?react'
 import Ts from '../assets/ToolsSVG/typescript.svg?react'
 import Node from '../assets/ToolsSVG/nodejs.svg?react'
+import Nginx from '../assets/ToolsSVG/nginx.svg?react'
 import Vue from '../assets/ToolsSVG/vuejs.svg?react'
 import ReactSvg from '../assets/ToolsSVG/react.svg?react'
 import Tailwind from '../assets/ToolsSVG/tailwind.svg?react'
@@ -116,42 +118,96 @@ export default function Work() {
       <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="projects-title">
         <h1 id="projects-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section1.h1')}</h1>
 
-        <div className="flex flex-col justify-center items-center">
-          {/*Projects' carousel*/}
-          <div  ref={sliderRef} className="keen-slider" aria-label={t('routes.work.aria.section1.carousel')} role="group">
-            {cardsData.map((card) => (<div key={card.id} className="keen-slider__slide">
-                                        <Card  card={card}/>
-                                      </div> ))}        
-          </div>
-          {/*Navigation dots*/}
-          {loaded && instanceRef.current && (
-              <div className="dots" aria-label={t('routes.work.aria.section1.dots')}>
-              {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
-                  return (
-                  <button
-                    key={idx}
-                    onClick={() => {instanceRef.current?.moveToIdx(idx)}}
-                    className={"dot" + (currentSlide === idx ? " active" : "")}
-                  ></button>
-                  )
-                })
-              }
+        {/*SELECTED PROJECT CARD*/}
+        <div className="flex flex-col lg:flex-row rounded-xs bg-[#ffff] dark:bg-[#241518]">
+
+          <div className="relative w-full lg:min-w-1/3 sm:self-stretch flex-0 px-8 py-16 bg-cover bg-center flex items-center justify-center rounded-xs" style={{ backgroundImage: `url(${selectedProject.background})`}}>
+            <img src={selectedProject.logoPathLight} alt="Logo" className=' max-w-1/2 max-h-65'/>
+            
+            {selectedProject.WIP && (
+              <div className='w-full absolute top-4 flex items-center justify-start'>              
+                <div className='p-2 bg-secondary-light dark:bg-secondary-dark rounded-r-xl uppercase font-medium text-black'>Work in progress</div>
               </div>
-            )
-          }
+            )}
+          </div>  
+
+          <div className="flex flex-1 flex-col gap-8 p-4">
+            <div>
+              <h2 className="font-serif text-xl xxs:text-2xl my-4 uppercase">{t(selectedProject.projectName)}</h2>
+              <div className="flex gap-2 flex-wrap">
+                {selectedProject.tags.map((tag) => (
+                  <div key={tag} className="bg-secondary-light rounded-2xl px-2 py-1 text-[#8056A1] font-sans text-sm font-normal uppercase">{tag}</div>))
+                }
+              </div>
+            </div>
+            
+            <p className="font-sans text-justify sm:text-base whitespace-pre-line"dangerouslySetInnerHTML={{ __html: t(selectedProject.description) }}/>
+            <div className="flex items-stretch justify-start gap-8">
+              {selectedProject.demoUrl && (
+                <a href={selectedProject.demoUrl} aria-label='Live Demo' target="_blank" rel="noopener noreferrer" className='flex items-center justify-center p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-2xl uppercase font-medium text-black'>{selectedProject.demoText}</a>
+              )}
+              {selectedProject.codeUrl && (
+                <a href={selectedProject.codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='p-2 bg-black dark:bg-white hover:bg-secondary-light hover:text-black rounded-2xl uppercase font-medium text-accent-light dark:text-accent-dark'><CodeSVG /></a>
+              )}
+            </div>
+          </div>
+
         </div>
+
+        {/*PROJECTS CAROUSEL ON MOBILE*/}
+        {isMobile && (
+          <div className="flex flex-col justify-center items-center">
+            {/*Projects' carousel*/}
+            <div  ref={sliderRef} className="keen-slider" aria-label={t('routes.work.aria.section1.carousel')} role="group">
+              {cardsData.map((card) => (
+                <div key={card.id} className="keen-slider__slide">
+                  <Card  card={card}/>
+                </div>))
+              }        
+            </div>
+            {/*Navigation dots*/}
+            {loaded && instanceRef.current && (
+                <div className="dots" aria-label={t('routes.work.aria.section1.dots')}>
+                {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
+                    return (
+                    <button
+                      key={idx}
+                      onClick={() => {instanceRef.current?.moveToIdx(idx)}}
+                      className={"dot" + (currentSlide === idx ? " active" : "")}
+                    ></button>
+                    )
+                  })
+                }
+                </div>
+              )
+            }
+          </div>
+        )}
+
+        {/*PROJECTS GRID ON PC*/}
+        {!isMobile && (
+          <div className="grid grid-cols-3 gap-4">
+            {cardsData.map((card) => (
+              <div key={card.id} className="">
+                <Card  card={card}/>
+              </div>))
+            }        
+          </div>
+        )}
+
       </section>
       
       <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="tools-title">
         <h1 id="tools-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section2.h1')}</h1>
 
-        {/*Toolkit carousel for phones and tables*/ }
+        {/*TOOLS CAROUSEL ON MOBILE*/ }
         {isMobile && (
           <div  ref={secondSliderRef} className="keen-slider my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
             <div className="keen-slider__slide flex justify-center items-center" aria-label="Python" role="img"><Py className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"/></div>
             <div className="keen-slider__slide flex justify-center items-center" aria-label="Typescript" role="img"><Ts className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Nodejs" role="img"><Node className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Vuejs" role="img"><Vue className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
+            <div className="keen-slider__slide flex justify-center items-center" aria-label="NodeJS" role="img"><Node className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
+            <div className="keen-slider__slide flex justify-center items-center" aria-label="Nginx" role="img"><Nginx className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
+            <div className="keen-slider__slide flex justify-center items-center" aria-label="VueJS" role="img"><Vue className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
             <div className="keen-slider__slide flex justify-center items-center" aria-label="React" role="img"><ReactSvg className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
             <div className="keen-slider__slide flex justify-center items-center" aria-label="TailwindCSS" role="img"><Tailwind className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
             <div className="keen-slider__slide flex justify-center items-center" aria-label="Figma" role="img"><Figma className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
@@ -162,7 +218,7 @@ export default function Work() {
           </div>
         )}
 
-        {/*Toolkit static display for desktops and bigger screens*/ }
+        {/*TOOLS GRID ON PC*/ }
         {!isMobile && (
           <div className="flex flex-col justify-center items-center w-full gap-16 px-16 my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
             <div className="flex justify-between items-center gap-16">
@@ -182,7 +238,7 @@ export default function Work() {
                   Typescript
                 </span>
               </figure>
-              <figure role="group" aria-label="Nodejs" className="relative group">
+              <figure role="group" aria-label="NodeJS" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
                   <Node className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
@@ -190,12 +246,20 @@ export default function Work() {
                   Nodejs
                 </span>
               </figure>
-              <figure role="group" aria-label="Vuejs" className="relative group">
+              <figure role="group" aria-label="Nginx" className="relative group">
+                <div tabIndex={0} className="focus:outline-none">
+                  <Nginx className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                </div>
+                <span className="tool-tooltip">
+                  Nginx
+                </span>
+              </figure>
+              <figure role="group" aria-label="VueJS" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
                   <Vue className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
-                  Vuejs
+                  VueJS
                 </span>
               </figure>
               <figure role="group" aria-label="React" className="relative group">
@@ -261,7 +325,7 @@ export default function Work() {
         )}
         
 
-        <Link to="/contacts" className="button-primary uppercase self-center" aria-label={t('routes.work.aria.section2.button')}>{t('routes.work.section2.button')}</Link>
+        <Link to="/contacts" className="button-primary bg-accent-light dark:bg-accent-dark dark:text-blue uppercase self-center" aria-label={t('routes.work.aria.section2.button')}>{t('routes.work.section2.button')}</Link>
 
       </section>
 

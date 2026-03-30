@@ -10,11 +10,12 @@ export default {
   },
   routes: {
     home: {
-      hello: "Ciao,",
-      IamMilena: " sono Milena",
-      h2: "Sono una software developer che ama creare applicazioni che uniscono un design pulito a funzionalità solide.",
-      p: "Lavorando con clienti e startup, ho capito che costruire un software efficace non significa limitarsi a scrivere codice di qualità — significa impostare sistemi affidabili, che funzionano bene e semplificano davvero la vita a utenti e sviluppatori. Mi interesso sempre di più al disegno completo, dall'interfaccia utente all'infrastruttura.",
-      button: "Guarda i miei lavori",
+      h1: "Milena Cipriani",
+      h2: "Fullstack developer",
+      h3: "Da un mockup in Figma all'infrastruttura in produzione",
+      p1: "Sviluppo applicazioni web end to end: dall'interfaccia utente all'infrastruttura sottostante, che progetto con un approccio security-first. Mi importa scrivere codice manutenibile, costruire sistemi affidabili e realizzare prodotti pensati per chi li usa.",
+      p2: "Disponibile per ruoli fullstack da remoto o ibridi.",
+      button: "Vedi i miei progetti",
       aria: {
         button: "Traduci in Inglese - Switch to English"
       }
@@ -22,32 +23,32 @@ export default {
     work: {
       section1: {
         h1: "Ecco a cosa\n sto lavorando",
+        selectedProject: {
+          projectName: 'The Left Drawer',
+          description: "Cloud privato, senza subscriptions, nessun accesso di terze parti, progettato per girare su Raspberry Pi. L'obbiettivo: renderlo piacevole da usare per chi non ha competenze tecniche.<br/>Demo live su VPS, mentre l'applicazione reale su rete ZeroTier privata.<br/><br/>⦁ <strong>Auth stratificata</strong> ➜ cookie di refresh httpOnly contro XSS, token con hash SHA-256 per evitare che una violazione del DB esponga sessioni valide, algoritmo HS256 fissato per prevenire confusion attack, cookie con path-scope su /api/auth per ridurre la superficie di trasmissione<br/>⦁ <strong>Lazy loading autenticato</strong> ➜ &lt;img src&gt; non ha header di autenticazione, quindi le anteprime vengono recuperate come blob tramite IntersectionObserver, convertite in object URL e revocate all'unmount per prevenire leak di memoria<br/>⦁ <strong>Operazioni sui file in caso di errore parziale</strong> ➜ upload, spostamenti ed eliminazioni vengono eseguiti in transazioni PostgreSQL con staging in una cartella cestino; dove la vera atomicità con il filesystem non è possibile, i fallimenti vengono loggati esplicitamente"
+        },
         carousel: {
           card0: {
-            projectName: "Portfolio per cliente",
-            description: "Soluzione portfolio completa per cliente, dal concept al deployment. Ho lavorato a stretto contatto con il cliente per progettare UI/UX in Figma che rappresentasse autenticamente la sua brand identity, ho poi sviluppato un'applicazione single-page modulare usando Vue.js, PrimeVue e TypeScript. Ho implementato pipeline CI/CD automatizzate con GitHub Actions e ottimizzato per SEO, performance e standard di accessibilità.",
+            projectName: "Il mio portfolio",
+            description: "Costruito per dimostrare il mio attuale approccio al frontend: architettura a componenti pulita, markup accessibile, tema chiaro/scuro e localizzazione completa italiano/inglese. Dipendenze volutamente ridotte al minimo. Il design è passato per Figma prima di scrivere una sola riga di codice.",
           },
           card1: {
-            projectName: "The Left Drawer",
-            description: "Una soluzione NAS production-ready, costruita su Raspberry Pi 4. Include un’app React Native, CLI tool e una web app React per la gestione remota dei file, orchestrazione dei servizi con Docker, stack di monitoraggio (Prometheus, Grafana), backup automatici e accesso remoto sicuro via VPN. Pensata come progetto di apprendimento DevOps. Se ti sembra interessante, dai un’occhiata al README nel source code per la roadmap completa e aggiornamenti sullo sviluppo!",
+            projectName: "Centro di formazione wellness",
+            description: "Rifatto da zero il sito di un centro di formazione per professionisti nel settore wellness: nuova identità visiva progettata in Figma, localizzazione completa italiano/spagnolo con cambio lingua istantaneo, e punteggio Lighthouse portato da 60 a 100 tramite ottimizzazione dei bundle, lazy loading e compressione degli asset.",
           },
           card2: {
-            projectName: "App containerizzata",
-            description: "Applicazione web full-stack per esplorare architetture containerizzate. Frontend React, REST API Node.js/Express e database PostgreSQL. Servizi multi-container orchestrati usando Docker Compose, implementando best practices per la gestione degli ambienti di sviluppo e produzione.",
+            projectName: "Portfolio di un cliente",
+            description: "Consegna end-to-end per un primo cliente indipendente: UI/UX progettata in Figma per rispecchiare il suo brand, sviluppata come single-page application in Vue.js e TypeScript, distribuita con CI/CD automatizzato.\nPunteggi Lighthouse: 97 Performance • 95 Accessibilità • 100 Best Practices • 100 SEO.",
           },
           card3: {
-            projectName: "Portfolio personale",
-            description: "Il sito web che stai usando proprio ora! Realizzato con React, TypeScript e Tailwind CSS. Design responsivo, conformità all'accessibilità e tema dinamico (dark/light modes). Ho mantenuto le dipendenze al minimo, usando solo Keen Sliders per i caroselli. Hosting con CI/CD automatizzati tramite GitHub Actions su dominio personale.",
-          },
-          card4: {
-            projectName: "Sito Centro Formazione",
-            description: "Sito web professionale per un centro di formazione nel settore salute e benessere che offre corsi e seminari per professionisti. Realizzato con React, TypeScript e Tailwind CSS, con supporto multilingua scalabile (italiano/spagnolo) e cambio lingua istantaneo. Ho modernizzato l'identità visiva del brand attraverso molteplici iterazioni, bilanciando la visione del cliente con best practices UX. Deployment su GitHub Pages con pipeline CI/CD automatizzate.",
+            projectName: "App di containerizzazione",
+            description: "Uno dei primi progetti full-stack: React, Node/Express, PostgreSQL, orchestrato con Docker Compose tra ambienti di sviluppo e produzione. Incluso per mostrare il punto di partenza. The Left Drawer è ciò che è venuto dopo.",
           },
         },
       },
       section2: {
         h1: "E con cosa lavoro",
-        button: "Iniziamo a collaborare!",
+        button: "Iniziamo a collaborare",
       },
       aria: {
         section1: {
@@ -69,6 +70,7 @@ export default {
     contacts:{
       h1: "Mi trovi qui!",
       p: "Fuso Orario CEST (UTC+2)",
+      availability: 'Disponibile per ruoli fullstack da remoto o ibridi',
       submitForm: 'Invia',
       aria: {
         whatsapp: "Scrivimi un messaggio su Whatsapp",

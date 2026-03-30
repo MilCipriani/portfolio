@@ -15,7 +15,7 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: NavbarProps) {
       <h1 className="text-4xl"><Link to="/" aria-label={t('nav.aria.home')}>Milena</Link></h1>
       <ul className='hidden md:flex gap-8 text-base uppercase'>
         <li><Link to="/work">{t('nav.work')}</Link></li>
-        <li><Link to="/blog">{t('nav.blog')}</Link></li>
+        {/*<li><Link to="/blog">{t('nav.blog')}</Link></li>*/}
         <li><Link to="/contacts">{t('nav.contacts')}</Link></li>
       </ul>
 

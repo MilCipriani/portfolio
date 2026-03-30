@@ -10,10 +10,11 @@ export interface TranslationStructure {
   }
   routes: {
     home: {
-      hello: string
-      IamMilena: string
+      h1: string
       h2: string
-      p: string
+      h3: string
+      p1: string
+      p2: string
       button: string
       aria: {
         button: string
@@ -22,6 +23,10 @@ export interface TranslationStructure {
     work: {
       section1: {
         h1: string
+        selectedProject: {
+          projectName: string
+          description: string
+        }
         carousel: {
           card0: {
             projectName: string
@@ -36,10 +41,6 @@ export interface TranslationStructure {
             description: string
           }
           card3: {
-            projectName: string
-            description: string
-          }
-          card4: {
             projectName: string
             description: string
           }
@@ -69,6 +70,7 @@ export interface TranslationStructure {
     contacts:{
       h1: string
       p: string
+      availability: string
       submitForm: string
       aria: {
         whatsapp: string
@@ -98,14 +100,17 @@ export type TranslationKey =
   | 'nav.aria.home'
   | 'nav.aria.toggleMenu'
 
-  | 'routes.home.hello'
-  | 'routes.home.IamMilena'
+  | 'routes.home.h1'
   | 'routes.home.h2'
-  | 'routes.home.p'
+  | 'routes.home.h3'
+  | 'routes.home.p1'
+  | 'routes.home.p2'
   | 'routes.home.button'
   | 'routes.home.aria.button'
 
   | 'routes.work.section1.h1'
+  | 'routes.work.section1.selectedProject.projectName'
+  | 'routes.work.section1.selectedProject.description'
   | 'routes.work.section1.carousel.card0.projectName'
   | 'routes.work.section1.carousel.card0.description'
   | 'routes.work.section1.carousel.card1.projectName'
@@ -130,6 +135,7 @@ export type TranslationKey =
 
   | 'routes.contacts.h1'
   | 'routes.contacts.p'
+  | 'routes.contacts.availability'
   | 'routes.contacts.submitForm'
   | 'routes.contacts.aria.whatsapp'
   | 'routes.contacts.aria.linkedin'
