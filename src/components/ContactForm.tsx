@@ -31,10 +31,10 @@ export default function ContactForm() {
       <p className='text-center sm:text-base font-semibold'>{t('routes.contacts.availability')}</p>
       <input type="hidden" name="from_name" value="Personal Portfolio"></input>
       <input type="checkbox" name="botcheck" className="hidden" style={{display: "none"}}></input>
-      <input type="text" placeholder='Name' name="name" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
+      <input type="text" placeholder={t('routes.contacts.name')} name="name" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
       <input type="email" placeholder='Email' name="email" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
-      <input type="text" placeholder='Object' name="object" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
-      <textarea name="message" placeholder='Message' required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'></textarea>
+      <input type="text" placeholder={t('routes.contacts.object')} name="object" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
+      <textarea name="message" placeholder={t('routes.contacts.message')} required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'></textarea>
       <button type="submit" className='button-primary flex items-center w-fit bg-black dark:bg-white text-accent-light dark:text-accent-dark p-4 rounded-2xl cursor-pointer uppercase font-normal'>{t('routes.contacts.submitForm')}</button>
       <span className='rounded-xl font-semibold py-2 px-3 text-black'>{result}</span>
     </form>

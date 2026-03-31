@@ -36,7 +36,7 @@ function useIsMobile(): boolean {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 1023px)') // lg starts at 1024px
+    const mediaQuery = window.matchMedia('(max-width: 1024px)') // lg starts at 1024px
     
     //Set initial value
     setIsMobile(mediaQuery.matches)
@@ -126,14 +126,14 @@ export default function Work() {
             
             {selectedProject.WIP && (
               <div className='w-full absolute top-4 flex items-center justify-start'>              
-                <div className='p-2 bg-secondary-light dark:bg-secondary-dark rounded-r-xl uppercase font-medium text-black'>Work in progress</div>
+                <div className='p-2 bg-black dark:bg-white rounded-r-xl uppercase font-medium text-secondary-light dark:text-accent-dark'>MVP</div>
               </div>
             )}
           </div>  
 
-          <div className="flex flex-1 flex-col gap-8 p-4">
+          <div className="flex flex-1 flex-col gap-8 px-8 py-12">
             <div>
-              <h2 className="font-serif text-xl xxs:text-2xl my-4 uppercase">{t(selectedProject.projectName)}</h2>
+              <h2 className="font-serif text-xl xxs:text-2xl mb-4 uppercase">{t(selectedProject.projectName)}</h2>
               <div className="flex gap-2 flex-wrap">
                 {selectedProject.tags.map((tag) => (
                   <div key={tag} className="bg-secondary-light rounded-2xl px-2 py-1 text-[#8056A1] font-sans text-sm font-normal uppercase">{tag}</div>))
@@ -186,7 +186,7 @@ export default function Work() {
 
         {/*PROJECTS GRID ON PC*/}
         {!isMobile && (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-6">
             {cardsData.map((card) => (
               <div key={card.id} className="">
                 <Card  card={card}/>
@@ -220,11 +220,11 @@ export default function Work() {
 
         {/*TOOLS GRID ON PC*/ }
         {!isMobile && (
-          <div className="flex flex-col justify-center items-center w-full gap-16 px-16 my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
+          <div className="flex flex-col justify-center items-center w-full gap-16 px-22 my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
             <div className="flex justify-between items-center gap-16">
               <figure role="group" aria-label="Python" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Py className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Py className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Python
@@ -232,7 +232,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="Typescript" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Ts className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Ts className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Typescript
@@ -240,7 +240,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="NodeJS" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Node className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Node className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Nodejs
@@ -248,7 +248,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="Nginx" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Nginx className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Nginx className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Nginx
@@ -256,7 +256,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="VueJS" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Vue className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Vue className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   VueJS
@@ -264,7 +264,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="React" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <ReactSvg className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <ReactSvg className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   React
@@ -272,7 +272,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="TailwindCSS" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Tailwind className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Tailwind className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   TailwindCSS
@@ -282,7 +282,7 @@ export default function Work() {
             <div className="flex justify-around items-center gap-16">
               <figure role="group" aria-label="Figma" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Figma className="w-24 h-24 xl:w-32 xl:h-32 col-span-2 col-start-2" role="img" aria-hidden="true" />
+                  <Figma className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Figma
@@ -290,7 +290,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="Bash" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Bash className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Bash className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Bash
@@ -298,7 +298,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="Git" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Git className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Git className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Git
@@ -306,7 +306,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="Docker" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Docker className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Docker className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   Docker
@@ -314,7 +314,7 @@ export default function Work() {
               </figure>
               <figure role="group" aria-label="PostgreSQL" className="relative group">
                 <div tabIndex={0} className="focus:outline-none">
-                  <Postgres className="w-24 h-24 xl:w-32 xl:h-32 col-span-2" role="img" aria-hidden="true" />
+                  <Postgres className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
                 </div>
                 <span className="tool-tooltip">
                   PostgreSQL
@@ -331,7 +331,8 @@ export default function Work() {
 
 
 			<footer className='hidden md:flex justify-end items-center gap-4'>
-				<LanguageToggle />
+        <span className='hidden sm:block mr-auto pl-4'>© Milena Cipriani</span>
+        <LanguageToggle />
         <ThemeToggle/> 
 			</footer> 
 

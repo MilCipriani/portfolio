@@ -71,6 +71,9 @@ export default {
       h1: "Get in touch",
       p: "Time Zone CEST (UTC+2)",
       availability: 'Open to fullstack remote and hybrid roles in Europe',
+      name: 'Name',
+      object: 'Object',
+      message: 'Message',
       submitForm: 'Submit',
       aria: {
         whatsapp: "Text me on Whatsapp",

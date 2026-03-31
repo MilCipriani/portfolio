@@ -29,7 +29,7 @@ export default function Contacts() {
 
 
   return (
-    <main className='h-full flex flex-col gap-8 justify-between pt-8 pb-16 xxs:py-16 relative'>
+    <main className='flex flex-col gap-16 xs:gap-24 pt-8 pb-16 xxs:py-16 relative'>
       <section aria-labelledby='title' className='flex flex-col items-start gap-1 z-10'>
         <h1 id="title" className="font-serif uppercase text-center text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.contacts.h1')}</h1>
         <span className='flex items-center justify-start'><GPS aria-hidden="true" className='w-4 h-auto'/><p>{t('routes.contacts.p')}</p></span>
