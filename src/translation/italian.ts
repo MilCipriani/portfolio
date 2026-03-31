@@ -68,16 +68,19 @@ export default {
       h1: "Prossimamente...",
     },
     contacts:{
-      h1: "Mi trovi qui!",
+      h1: "Mi trovi qui",
       p: "Fuso Orario CEST (UTC+2)",
       availability: 'Disponibile per ruoli fullstack da remoto o ibridi',
-      submitForm: 'Invia',
+      name: 'Nome',
+      object: 'Oggetto',
+      message: 'Messaggio',
+      submitForm: 'Invia messaggio',
       aria: {
         whatsapp: "Scrivimi un messaggio su Whatsapp",
         linkedin: "Visita il mio profilo Linkedin",
         github: "Visita il mio profilo GitHub",
       },
-      formAnswer: "Messaggio inviato!",
+      formAnswer: "Messaggio inviato",
     },
     phoneMenu: {
       work: "Lavori",

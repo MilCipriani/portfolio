@@ -65,7 +65,7 @@ export default function Card({ card }:CardProps) {
             )}
             {codeUrl && (
               
-              <a href={codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='ml-auto p-2 bg-black dark:bg-white hover:bg-secondary-light rounded-[22px] uppercase font-medium text-accent-light dark:text-accent-dark border-6 border-white dark:border-blue font-mono'><CodeSVG /></a>
+              <a href={codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='ml-auto p-2 bg-black dark:bg-white hover:text-black hover:bg-secondary-light rounded-[22px] uppercase font-medium text-accent-light dark:text-accent-dark border-6 border-white dark:border-blue font-mono'><CodeSVG /></a>
             
             )}
             </div>
