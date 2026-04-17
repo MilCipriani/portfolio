@@ -27,7 +27,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className='bg-[url(/src/assets/BGL.webp)] bg-cover bg-center flex flex-col justify-center items-center md:max-w-1/2 gap-8 p-8 pt-16 rounded-xs z-50'>
+    <form onSubmit={onSubmit} className='bg-[url(/src/assets/BGL.webp)] dark:bg-[url(/src/assets/BGD.webp)] bg-cover bg-center flex flex-col justify-center items-center w-full md:max-w-1/2 gap-8 p-8 pt-16 rounded-xs z-50'>
       <p className='text-center sm:text-base font-semibold'>{t('routes.contacts.availability')}</p>
       <input type="hidden" name="from_name" value="Personal Portfolio"></input>
       <input type="checkbox" name="botcheck" className="hidden" style={{display: "none"}}></input>
@@ -35,7 +35,7 @@ export default function ContactForm() {
       <input type="email" placeholder='Email' name="email" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
       <input type="text" placeholder={t('routes.contacts.object')} name="object" required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'/>
       <textarea name="message" placeholder={t('routes.contacts.message')} required className='p-2 bg-white dark:bg-secondary-light rounded-xl font-medium text-black w-full'></textarea>
-      <button type="submit" className='button-primary flex items-center w-fit bg-black dark:bg-white text-accent-light dark:text-accent-dark p-4 rounded-2xl cursor-pointer uppercase font-normal'>{t('routes.contacts.submitForm')}</button>
+      <button type="submit" className='button-primary flex items-center w-fit bg-black dark:bg-background-dark text-accent-light dark:text-primary-dark p-4 rounded-2xl cursor-pointer uppercase font-normal'>{t('routes.contacts.submitForm')}</button>
       <span className='rounded-xl font-semibold py-2 px-3 text-black'>{result}</span>
     </form>
   );

@@ -43,13 +43,13 @@ export default function Card({ card }:CardProps) {
 
   return (
     <figure className="card flex flex-col mb-8" role="group" aria-labelledby={`card-title-${card.id}`}>
-        <div className={`relative flex flex-col justify-center items-center py-8 sm:py-16 bg-cover bg-center rounded-xs h-60 md:h-60`}
+        <div className={`relative flex flex-col justify-center items-center py-8 sm:py-16 bg-cover bg-center rounded-xs h-60 md:h-60 dark:saturate-150`}
         style={{
           backgroundImage: `url(${currentBackground})`,
         }}>
 
-            <img src={logoPathLight} alt="Logo" className='dark:hidden text-black dark:text-white max-w-1/2 max-h-65'/>
-            <img src={logoPathDark} alt="Logo" className='hidden dark:block text-black dark:text-white max-w-1/2 max-h-65'/>
+            <img src={logoPathLight} alt="Logo" className='dark:hidden max-w-1/2 max-h-65 lg:max-h-52'/>
+            <img src={logoPathDark} alt="Logo" className='hidden dark:block max-w-1/2 max-h-65 lg:max-h-52'/>
             
             {WIP && (
               <div className='w-full absolute top-4 flex items-center justify-start'>              
@@ -60,12 +60,12 @@ export default function Card({ card }:CardProps) {
             <div className='w-full absolute bottom-0 translate-y-1/2  px-4 flex'>
             {demoUrl && (
               
-              <a href={demoUrl} aria-label='Live Demo' target="_blank" rel="noopener noreferrer" className='flex items-center justify-center mr-auto p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-[22px] uppercase font-medium border-6 border-white dark:border-blue text-black'>{demoText}</a>
+              <a href={demoUrl} aria-label='Live Demo' target="_blank" rel="noopener noreferrer" className='flex items-center justify-center mr-auto p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-[22px] uppercase font-medium border-6 border-background-light dark:border-background-dark text-black'>{demoText}</a>
             
             )}
             {codeUrl && (
               
-              <a href={codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='ml-auto p-2 bg-black dark:bg-white hover:text-black hover:bg-secondary-light rounded-[22px] uppercase font-medium text-accent-light dark:text-accent-dark border-6 border-white dark:border-blue font-mono'><CodeSVG /></a>
+              <a href={codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='ml-auto p-2 bg-black dark:bg-white hover:text-black hover:bg-secondary-light rounded-[22px] uppercase font-medium text-accent-light dark:text-accent-dark border-6 border-background-light dark:border-background-dark font-mono'><CodeSVG /></a>
             
             )}
             </div>
