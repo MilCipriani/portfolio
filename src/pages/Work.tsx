@@ -114,19 +114,19 @@ export default function Work() {
   )
 
   return (
-    <div className="flex flex-col gap-16 xs:gap-24 xxs:py-16 pt-8 pb-16">
+    <div className="flex flex-col gap-16 xs:gap-24 xxs:py-16 lg:py-32 pt-8 pb-16">
       <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="projects-title">
         <h1 id="projects-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section1.h1')}</h1>
 
         {/*SELECTED PROJECT CARD*/}
-        <div className="flex flex-col lg:flex-row rounded-xs bg-[#ffff] dark:bg-[#241518]">
+        <div className="flex flex-col lg:flex-row rounded-xs bg-[#ffff] dark:bg-[#6775A7]">
 
-          <div className="relative w-full lg:min-w-1/3 sm:self-stretch flex-0 px-8 py-16 bg-cover bg-center flex items-center justify-center rounded-xs" style={{ backgroundImage: `url(${selectedProject.background})`}}>
-            <img src={selectedProject.logoPathLight} alt="Logo" className=' max-w-1/2 max-h-65'/>
+          <div className="relative w-full lg:min-w-1/3 sm:self-stretch flex-0 px-8 py-16 flex items-center justify-center rounded-xs bg-black dark:bg-white">
+            <img src={selectedProject.logoPathLight} alt="Logo" className='text-white dark:text-background-dark max-w-1/4 max-h-65'/>
             
             {selectedProject.WIP && (
               <div className='w-full absolute top-4 flex items-center justify-start'>              
-                <div className='p-2 bg-black dark:bg-white rounded-r-xl uppercase font-medium text-secondary-light dark:text-accent-dark'>MVP</div>
+                <div className='p-2 bg-primary-light rounded-r-xl uppercase font-medium text-black dark:text-background-secondary'>MVP</div>
               </div>
             )}
           </div>  
@@ -136,7 +136,7 @@ export default function Work() {
               <h2 className="font-serif text-xl xxs:text-2xl mb-4 uppercase">{t(selectedProject.projectName)}</h2>
               <div className="flex gap-2 flex-wrap">
                 {selectedProject.tags.map((tag) => (
-                  <div key={tag} className="bg-secondary-light rounded-2xl px-2 py-1 text-[#8056A1] font-sans text-sm font-normal uppercase">{tag}</div>))
+                  <div key={tag} className="bg-secondary-light rounded-2xl px-2 py-1 text-[#8056A1] dark:text-background-dark font-sans text-sm font-normal uppercase">{tag}</div>))
                 }
               </div>
             </div>
@@ -325,7 +325,7 @@ export default function Work() {
         )}
         
 
-        <Link to="/contacts" className="button-primary bg-accent-light dark:bg-accent-dark dark:text-blue uppercase self-center" aria-label={t('routes.work.aria.section2.button')}>{t('routes.work.section2.button')}</Link>
+        <Link to="/contacts" className="button-primary bg-accent-light dark:bg-accent-dark dark:text-background-dark uppercase self-center" aria-label={t('routes.work.aria.section2.button')}>{t('routes.work.section2.button')}</Link>
 
       </section>
 

@@ -17,7 +17,7 @@ function AppContent() {
   return (
     <div className={`h-screen w-screen flex flex-col relative ${
       isHomePage ? 'overflow-hidden' : ''
-    } ${!isHomePage ? 'bg-white dark:bg-blue' : ''}`}>
+    } ${!isHomePage ? 'bg-background-light dark:bg-background-dark' : ''}`}>
       
       {/*Overscan background - only for HomePage */}
       {isHomePage && (
@@ -27,7 +27,7 @@ function AppContent() {
         </>
       )}
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <div key={location.pathname} className="animate-fade-in flex-1 overflow-auto hide-scrollbar px-4 md:px-16 lg:px-20 2xl:px-80">
+      <div key={location.pathname} className="animate-fade-in flex-1 overflow-auto hide-scrollbar px-4 md:px-16 lg:px-20 2xl:px-80 4k:px-150">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />

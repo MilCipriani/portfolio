@@ -9,29 +9,33 @@ html element*/
 @theme {
   --breakpoint-xxs: 24rem; /*384px*/
   --breakpoint-xs: 30rem; /*480px*/
+  --breakpoint-4k: 180rem; /*4k monitors targeted directly*/
+
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
 
   --background-image-home-image: url('/src/assets/BGL.webp');
   --background-image-home-image-dark: url('/src/assets/BGD.webp');
 
-  /*LIGHT THEME*/
+/*COLOR PALETTE ======================================================*/
+
   --color-black: #1E1E1E;
   --color-white: #F3F3F3;
-  --color-blue: #140A0C; /*251518*/
-  --color-accent-light: #F7B78F;
-  --color-secondary-light: #E1BBFF; /*#D2B9F4 purple*/
-  --color-transparent-black: rgba(30, 30, 30, 0.75);
-  --color-transparent-white: rgba(243, 243, 243, 0.75);
+  --color-transparent-black: rgba(30, 30, 30, 0.75); /*phone Menu*/
+  --color-transparent-white: rgba(243, 243, 243, 0.75); /*phone Menu*/
+
+  /*LIGHT THEME*/
+  --color-background-light: #F3F3F3;
+  --color-primary-light: #E1BBFF; /*Liliac*/
+  --color-accent-light: #F7B78F; /*Light orange*/
+  --color-secondary-light: #E1BBFF; /*Liliac*/
 
   /*DARK THEME*/
-  /*--color-black: #1E1E1E;*/
-  --color-white-dark: #F2E8E0;
-  --color-background-dark: #140A0C; /*251518*/
-  --color-accent-dark: #E8855A;
-  --color-secondary-dark: #FFBE81;
+  --color-background-dark: #161A28;
+  --color-primary-dark: #E1BBFF; /*Liliac*/
+  --color-accent-dark: #E8855A; /*dark orange*/
+  --color-secondary-dark: #FFBE81; /*Yellow-ish orange*/
 
-
-  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'DM Serif Display', Georgia, serif
 }
 
 /*Add smooth transitions for theme changes to everything*/
@@ -113,7 +117,7 @@ body {
 }
 
 .dark body {
-  color: var(--color-white-dark);
+  color: var(--color-white);
 }
 
 .background-img {
@@ -239,7 +243,7 @@ p.pcard {
 }
 
 .dark.dot.active {
-  background: var(--color-accent-dark);
+  background: var(--color-primary-dark);
 }
 
 .tool-tooltip {
