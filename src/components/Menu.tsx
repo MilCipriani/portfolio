@@ -20,7 +20,7 @@ export default function FullScreenMenu({ isMenuOpen, setIsMenuOpen }: FullScreen
 
   return (
     <div
-        className={`fixed inset-0 bg-white dark:bg-blue z-[100] menu-transition transition-all duration-800 ease-in-out flex items-center justify-center ${
+        className={`fixed inset-0 bg-white dark:bg-background-dark z-100 menu-transition transition-all duration-800 ease-in-out flex items-center justify-center ${
         isMenuOpen 
           ? 'opacity-100 visible' 
           : 'opacity-0 invisible'
