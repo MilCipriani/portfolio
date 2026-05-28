@@ -1,16 +1,11 @@
-import { useState, useEffect } from "react"
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
 import { useLanguage } from '../translation/index'
 
 import { Link } from "react-router-dom"
 
-import Card from '../components/Card'
-import { cardsData, selectedProject } from '../data/CardsData';
-import ThemeToggle from '../components/ThemeToggle';
-import LanguageToggle from "../components/LanguageToggle"
+import WorkCard from '../components/WorkCard'
+import { worksData } from '../data/WorksData';
+import Footer from "../components/Footer"
 
-import CodeSVG from '../assets/code.svg?react'
 import Py from '../assets/ToolsSVG/python.svg?react'
 import Ts from '../assets/ToolsSVG/typescript.svg?react'
 import Node from '../assets/ToolsSVG/nodejs.svg?react'
@@ -24,317 +19,58 @@ import Git from '../assets/ToolsSVG/git.svg?react'
 import Docker from '../assets/ToolsSVG/docker.svg?react'
 import Postgres from '../assets/ToolsSVG/postgresql.svg?react'
 
-interface AnimationConfig {
-  duration: number;
-  easing: (t: number) => number;
-}
-
-const animation: AnimationConfig = { duration: 10000, easing: (t) => t }
-
-//Hook to check if screen is <1024px (lg tailwind breakpoint)
-function useIsMobile(): boolean {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 1024px)') // lg starts at 1024px
-    
-    //Set initial value
-    setIsMobile(mediaQuery.matches)
-    
-    //Listen for changes
-    const handleChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
-    mediaQuery.addEventListener('change', handleChange)
-    
-    return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [])
-
-  return isMobile
-}
 
 export default function Work() {
   const { t } = useLanguage()
-  const isMobile = useIsMobile()
-
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [loaded, setLoaded] = useState(false)
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    mode: "free-snap",
-    loop: true,
-    breakpoints: {
-        "(min-width: 100px)": {
-        slides: { perView: 1, spacing: 15 },
-        },
-        "(min-width: 720px)": {
-        slides: { perView: 2, spacing: 15 },
-        },
-        "(min-width: 1000px)": {
-        slides: { perView: 3, spacing: 15 },
-        },
-        "(min-width: 1280px)": {
-        slides: { perView: 3, spacing: 15 },
-        },
-        "(min-width: 1480px)": {
-        slides: { perView: 4, spacing: 15 },
-        },
-    },
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
-    },
-    created() {
-      setLoaded(true)
-    },
-  })
-
-  const [secondSliderRef] = useKeenSlider({
-      loop: true,
-      renderMode: "performance",
-      drag: true,
-      breakpoints: {
-        "(min-width: 200px)": {
-          slides: { perView: 3, spacing: 10 },
-        },
-        "(min-width: 400px)": {
-          slides: { perView: 4, spacing: 15 },
-        },
-        "(min-width: 720px)": {
-          slides: { perView: 6, spacing: 15 },
-        },
-      },
-      created(s) {
-        s.moveToIdx(5, true, animation)
-      },
-      updated(s) {
-        s.moveToIdx(s.track.details.abs + 5, true, animation)
-      },
-      animationEnded(s) {
-        s.moveToIdx(s.track.details.abs + 5, true, animation)
-      },
-    }
-  )
 
   return (
-    <div className="flex flex-col gap-16 xs:gap-24 xxs:py-16 lg:py-32 pt-8 pb-16">
-      <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="projects-title">
+    <div className="w-full h-fit flex flex-col gap-32 max-w-[1000px] mx-auto">
+      <section className="flex flex-col gap-20">
         <h1 id="projects-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section1.h1')}</h1>
 
-        {/*SELECTED PROJECT CARD*/}
-        <div className="flex flex-col lg:flex-row rounded-xs bg-[#ffff] dark:bg-[#6775A7]">
-
-          <div className="relative w-full lg:min-w-1/3 sm:self-stretch flex-0 px-8 py-16 flex items-center justify-center rounded-xs bg-black dark:bg-white">
-            <img src={selectedProject.logoPathLight} alt="Logo" className='text-white dark:text-background-dark max-w-1/4 max-h-65'/>
-            
-            {selectedProject.WIP && (
-              <div className='w-full absolute top-4 flex items-center justify-start'>              
-                <div className='p-2 bg-primary-light rounded-r-xl uppercase font-medium text-black dark:text-background-secondary'>MVP</div>
-              </div>
-            )}
-          </div>  
-
-          <div className="flex flex-1 flex-col gap-8 px-8 py-12">
-            <div>
-              <h2 className="font-serif text-xl xxs:text-2xl mb-4 uppercase">{t(selectedProject.projectName)}</h2>
-              <div className="flex gap-2 flex-wrap">
-                {selectedProject.tags.map((tag) => (
-                  <div key={tag} className="bg-secondary-light rounded-2xl px-2 py-1 text-[#8056A1] dark:text-background-dark font-sans text-sm font-normal uppercase">{tag}</div>))
-                }
-              </div>
-            </div>
-            
-            <p className="font-sans text-justify sm:text-base whitespace-pre-line"dangerouslySetInnerHTML={{ __html: t(selectedProject.description) }}/>
-            <div className="flex items-stretch justify-start gap-8">
-              {selectedProject.demoUrl && (
-                <a href={selectedProject.demoUrl} aria-label='Live Demo' target="_blank" rel="noopener noreferrer" className='flex items-center justify-center p-2 bg-accent-light dark:bg-accent-dark hover:bg-secondary-light rounded-2xl uppercase font-medium text-black'>{selectedProject.demoText}</a>
-              )}
-              {selectedProject.codeUrl && (
-                <a href={selectedProject.codeUrl} aria-label='Source Code' target="_blank" rel="noopener noreferrer" className='p-2 bg-black dark:bg-white hover:bg-secondary-light hover:text-black rounded-2xl uppercase font-medium text-accent-light dark:text-accent-dark'><CodeSVG /></a>
-              )}
-            </div>
-          </div>
-
-        </div>
-
-        {/*PROJECTS CAROUSEL ON MOBILE*/}
-        {isMobile && (
-          <div className="flex flex-col justify-center items-center">
-            {/*Projects' carousel*/}
-            <div  ref={sliderRef} className="keen-slider" aria-label={t('routes.work.aria.section1.carousel')} role="group">
-              {cardsData.map((card) => (
-                <div key={card.id} className="keen-slider__slide">
-                  <Card  card={card}/>
-                </div>))
-              }        
-            </div>
-            {/*Navigation dots*/}
-            {loaded && instanceRef.current && (
-                <div className="dots" aria-label={t('routes.work.aria.section1.dots')}>
-                {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
-                    return (
-                    <button
-                      key={idx}
-                      onClick={() => {instanceRef.current?.moveToIdx(idx)}}
-                      className={"dot" + (currentSlide === idx ? " active" : "")}
-                    ></button>
-                    )
-                  })
-                }
-                </div>
-              )
-            }
-          </div>
-        )}
-
-        {/*PROJECTS GRID ON PC*/}
-        {!isMobile && (
-          <div className="grid grid-cols-3 gap-6">
-            {cardsData.map((card) => (
-              <div key={card.id} className="">
-                <Card  card={card}/>
-              </div>))
-            }        
-          </div>
-        )}
-
-      </section>
-      
-      <section className="flex flex-col gap-16 xs:gap-24" aria-labelledby="tools-title">
-        <h1 id="tools-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section2.h1')}</h1>
-
-        {/*TOOLS CAROUSEL ON MOBILE*/ }
-        {isMobile && (
-          <div  ref={secondSliderRef} className="keen-slider my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Python" role="img"><Py className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"/></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Typescript" role="img"><Ts className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="NodeJS" role="img"><Node className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Nginx" role="img"><Nginx className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="VueJS" role="img"><Vue className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="React" role="img"><ReactSvg className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="TailwindCSS" role="img"><Tailwind className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Figma" role="img"><Figma className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Bash" role="img"><Bash className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Git" role="img"><Git className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Docker" role="img"><Docker className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-            <div className="keen-slider__slide flex justify-center items-center" aria-label="Postgresql" role="img"><Postgres className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" /></div>
-          </div>
-        )}
-
-        {/*TOOLS GRID ON PC*/ }
-        {!isMobile && (
-          <div className="flex flex-col justify-center items-center w-full gap-16 px-22 my-8" aria-label={t('routes.work.aria.section2.toolkit')} role="group">
-            <div className="flex justify-between items-center gap-16">
-              <figure role="group" aria-label="Python" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Py className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Python
-                </span>
-              </figure>
-              <figure role="group" aria-label="Typescript" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Ts className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Typescript
-                </span>
-              </figure>
-              <figure role="group" aria-label="NodeJS" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Node className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Nodejs
-                </span>
-              </figure>
-              <figure role="group" aria-label="Nginx" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Nginx className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Nginx
-                </span>
-              </figure>
-              <figure role="group" aria-label="VueJS" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Vue className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  VueJS
-                </span>
-              </figure>
-              <figure role="group" aria-label="React" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <ReactSvg className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  React
-                </span>
-              </figure>
-              <figure role="group" aria-label="TailwindCSS" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Tailwind className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  TailwindCSS
-                </span>
-              </figure>
-            </div>
-            <div className="flex justify-around items-center gap-16">
-              <figure role="group" aria-label="Figma" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Figma className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Figma
-                </span>
-              </figure>
-              <figure role="group" aria-label="Bash" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Bash className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Bash
-                </span>
-              </figure>
-              <figure role="group" aria-label="Git" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Git className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Git
-                </span>
-              </figure>
-              <figure role="group" aria-label="Docker" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Docker className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  Docker
-                </span>
-              </figure>
-              <figure role="group" aria-label="PostgreSQL" className="relative group">
-                <div tabIndex={0} className="focus:outline-none">
-                  <Postgres className="max-w-24 max-h-24 xl:max-w-32 xl:max-h-32 col-span-2" role="img" aria-hidden="true" />
-                </div>
-                <span className="tool-tooltip">
-                  PostgreSQL
-                </span>
-              </figure>
-            </div>
-          </div> 
-        )}
         
 
-        <Link to="/contacts" className="button-primary bg-accent-light dark:bg-accent-dark dark:text-background-dark uppercase self-center" aria-label={t('routes.work.aria.section2.button')}>{t('routes.work.section2.button')}</Link>
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 items-stretch justify-center gap-28">
+          {worksData.map((card) => (
+            <div key={card.id} className="h-full">
+              <WorkCard  card={card}/>
+            </div>))
+          }        
+        </div>
+
+      </section>
+
+      <section className="flex flex-col items-center justify-center gap-20">
+
+        <h1 id="tools-title" className="w-full text-start uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section2.h1')}</h1>
+        
+        <div className="flex flex-col items-center justify-center gap-9">
+          <div className="flex gap-2.5 md:gap-4">
+            <Py className="w-10 md:w-16"/>
+            <Ts className="w-10 md:w-16" />
+            <Node className="w-10 md:w-16" />
+            <Nginx className="w-10 md:w-16" />
+            <Vue className="w-10 md:w-16" />
+            <ReactSvg className="w-10 md:w-16" />
+            <Tailwind className="w-10 md:w-16" />
+          </div>
+
+          <div className="flex gap-2.5 md:gap-4">
+            <Figma className="w-10 md:w-16" />
+            <Bash className="w-10 md:w-16" />
+            <Git className="w-10 md:w-16" />
+            <Docker className="w-10 md:w-16" />
+            <Postgres className="w-10 md:w-16" />
+          </div>
+        </div>
+
+        <Link to="/contacts" className="button-primary shadow-primary-button dark:shadow-primary-button-dark">{t('routes.work.section2.button')}</Link>
+        
 
       </section>
 
 
-			<footer className='hidden md:flex justify-end items-center gap-4'>
-        <span className='hidden sm:block mr-auto pl-4'>© Milena Cipriani</span>
-        <LanguageToggle />
-        <ThemeToggle/> 
-			</footer> 
+			<Footer />
 
     </div>
   );

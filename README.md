@@ -1,17 +1,15 @@
 # Personal Portfolio
 
-My portfolio as both a professional showcase and a learning space — somewhere to experiment 
-with techniques I care about while keeping the code production-quality.
+My portfolio as both a professional showcase and a learning space.
 
 ## Tech Stack
 
-`React` `TypeScript` `TailwindCSS` `Keen Slider` `GitHub Actions` `GitHub Pages` `Figma`
+`React` `TypeScript` `TailwindCSS` `GitHub Actions` `Figma`
 
 ## Why I built this
 
 Wanted a space that reflects how I actually approach frontend work, and a window for my projects.
-The design went through Figma. Dependencies are intentionally minimal —
-Keen Slider is the only non-trivial addition, chosen for its lightweight footprint and no-dependency policy.
+The design went through Figma.
 
 ## Features
 
@@ -33,7 +31,7 @@ Full Italian/English support.
 
 ## Development
 ```bash
-npm start        # Start development server
+npm run dev      # Start development server
 npm run build    # Create production build
 npm run preview  # Preview production build
 ```
