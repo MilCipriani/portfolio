@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../translation/index'
 
-import LanguageToggle from '../components/LanguageToggle';
-import ThemeToggle from '../components/ThemeToggle'
-
 import GPS from '../assets/Contacts/GPS.svg?react'
 import Whatsapp from '../assets/Contacts/Whatsapp.svg?react'
 import Linkedin from '../assets/Contacts/Linkedin.svg?react'
 import Github from '../assets/Contacts/Github.svg?react'
 
 import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
 
 export default function Contacts() {
   const [whatsappLink, setWhatsappLink] = useState('')
@@ -29,29 +27,32 @@ export default function Contacts() {
 
 
   return (
-    <main className='min-h-full flex flex-col gap-16 xs:gap-24 pt-8 pb-16 xxs:py-16 4k:py-32 relative'>
-      <section aria-labelledby='title' className='flex flex-col items-start gap-1 z-10'>
-        <h1 id="title" className="font-serif uppercase text-center text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.contacts.h1')}</h1>
-        <span className='flex items-center justify-start'><GPS aria-hidden="true" className='w-4 h-auto'/><p>{t('routes.contacts.p')}</p></span>
+    <main className='h-full flex flex-col items-center gap-32 max-w-[1000px] mx-auto'>
+      <section className='w-full flex flex-col items-center gap-20'>
+        <div className='w-full flex flex-col items-start gap-1'>
+          <h1 id="title" className="font-serif uppercase text-center text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.contacts.section1.h1')}</h1>
+          <span className='flex items-center justify-start text-text-gps-input dark:text-text-gps-input-dark'><GPS aria-hidden="true" className='w-4 h-auto'/><p className='text-[14px]'>{t('routes.contacts.section1.gps')}</p></span>
+        </div>
+        <ContactForm/>
       </section>
+
+      
        
-      <div className='flex flex-col gap-8 sm:flex-row-reverse items-center justify-between 4k:mt-32'>
-        <div className='flex items-center justify-center sm:flex-col gap-8 z-100'>
+      
+      <section className='w-full flex flex-col gap-20 mb-auto'>
+        <h1 id="title" className="w-full text-start font-serif uppercase text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.contacts.section2.h1')}</h1>
+        <div className='w-full flex items-center justify-center gap-6'>
           <a href={whatsappLink} aria-label={t('routes.contacts.aria.whatsapp')} target="_blank" rel="noopener noreferrer">
             <Whatsapp aria-hidden="true" className='md:w-14 md:h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/>
           </a>
           <a href='https://www.linkedin.com/in/milena-cipriani' aria-label={t('routes.contacts.aria.linkedin')} target="_blank" rel="noopener noreferrer"><Linkedin aria-hidden="true" className='w-14 h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
           <a href='https://github.com/MilCipriani' aria-label={t('routes.contacts.aria.github')} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" className='w-14 h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
         </div>
-        <ContactForm/>
-      </div>
+      </section> 
+     
       
               
-      <footer className='hidden md:flex justify-end items-center gap-4 z-10 mt-auto'>
-        <span className='hidden sm:block mr-auto pl-4'>© Milena Cipriani</span>
-        <LanguageToggle />
-        <ThemeToggle /> 
-      </footer> 
+      <Footer />
     </main>
     
   );

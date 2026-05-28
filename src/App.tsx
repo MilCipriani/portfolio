@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './hooks/useTheme.tsx'
 import Navbar from './components/Navbar.tsx'
-import Menu from './components/Menu.tsx'
 import Home from './pages/Home.tsx'
 import Work from './pages/Work.tsx'
 import Blog from './pages/Blog.tsx'
@@ -10,24 +8,18 @@ import Contacts from './pages/Contacts.tsx'
 
 function AppContent() {
   const location = useLocation()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   
   const isHomePage = location.pathname === '/'
   
   return (
-    <div className={`h-screen w-screen flex flex-col relative ${
-      isHomePage ? 'overflow-hidden' : ''
-    } ${!isHomePage ? 'bg-background-light dark:bg-background-dark' : ''}`}>
+    <div className={`relative h-full w-full flex flex-col items-center justify-center pt-12 pb-6 ${
+      isHomePage ? 'overflow-hidden bg-linear-175 from-[#FFD6E8] to-[#FFA879] dark:from-[#786889] dark:to-[#161A28]' 
+                : 'bg-linear-180 from-45% from-white to-[#FFF1E9] dark:from-[#403B49] dark:to-[#393147]'}`
+    }>
+      {!isHomePage && (<div className='absolute top-0 left-0 w-full bg-main-accent dark:bg-main-accent-dark h-1.5'></div>)}
       
-      {/*Overscan background - only for HomePage */}
-      {isHomePage && (
-        <>
-          <div className="absolute -top-[2%] -left-[2%] w-[110%] h-[110%] sm:-top-[1%] sm:-left-[1%] sm:w-[105%] sm:h-[105%] bg-home-image bg-cover bg-center bg-no-repeat -z-10 transition-opacity ease-in-out dark:opacity-0" />
-          <div className="absolute -top-[2%] -left-[2%] w-[110%] h-[110%] sm:-top-[1%] sm:-left-[1%] sm:w-[105%] sm:h-[105%] bg-home-image-dark bg-cover bg-center bg-no-repeat -z-10 transition-opacity ease-in-out opacity-0 dark:opacity-100" />
-        </>
-      )}
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <div key={location.pathname} className="animate-fade-in flex-1 overflow-auto hide-scrollbar px-4 md:px-16 lg:px-20 2xl:px-80 4k:px-150">
+      <Navbar />
+      <div key={location.pathname} className="w-full animate-fade-in flex-1 overflow-auto hide-scrollbar px-4 sm:px-8 md:px-16">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
@@ -35,7 +27,6 @@ function AppContent() {
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </div>
-      <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   )
 }

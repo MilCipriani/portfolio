@@ -11,8 +11,8 @@ html element*/
   --breakpoint-xs: 30rem; /*480px*/
   --breakpoint-4k: 180rem; /*4k monitors targeted directly*/
 
-  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
 
   --background-image-home-image: url('/src/assets/BGL.webp');
   --background-image-home-image-dark: url('/src/assets/BGD.webp');
@@ -21,20 +21,38 @@ html element*/
 
   --color-black: #1E1E1E;
   --color-white: #F3F3F3;
-  --color-transparent-black: rgba(30, 30, 30, 0.75); /*phone Menu*/
-  --color-transparent-white: rgba(243, 243, 243, 0.75); /*phone Menu*/
 
-  /*LIGHT THEME*/
-  --color-background-light: #F3F3F3;
-  --color-primary-light: #E1BBFF; /*Liliac*/
-  --color-accent-light: #F7B78F; /*Light orange*/
-  --color-secondary-light: #E1BBFF; /*Liliac*/
+  --color-home-text: #C44B45;
+  --color-home-text-dark: #DF94FF;
+  --color-copyright: #8B634E;
+  --color-copyright-dark: #513B98;
+  --color-main-accent: #FFAA7E;
+  --color-main-accent-dark: #8763FF;
+  --color-work-card-bg: #F8F8F8;
+  --color-work-card-bg-dark: #4F485C;
+  --color-tags-bg: #FFCDBB;
+  --color-tags-bg-dark: #E9C9F8;
+  --color-tags-text: #C44B45;
+  --color-tags-text-dark: #4E4A87;
+  --color-secondary-text: #9B9B9B;
+  --color-secondary-text-dark: #937CA0;
+  --color-text-gps-input: #DD9C99;
+  --color-text-gps-input-dark: #BFACFF;
+  --color-input-bg: #FFF2EE;
+  --color-input-bg-dark: #7E76A5;
 
-  /*DARK THEME*/
-  --color-background-dark: #161A28;
-  --color-primary-dark: #E1BBFF; /*Liliac*/
-  --color-accent-dark: #E8855A; /*dark orange*/
-  --color-secondary-dark: #FFBE81; /*Yellow-ish orange*/
+  --shadow-light: 0 4px 30px rgba(232, 232, 232, 1);
+  --shadow-dark: 0 4px 30px rgba(59, 54, 68, 1);
+
+  --inset-shadow-light: 0 0 2px rgba(0, 0, 0, 0.25);
+  --inset-shadow-dark: 0 0 8px rgba(159, 133, 208, 1);
+
+  --shadow-home-button-light: 0 2px 5px rgba(150, 64, 13, 0.5);
+  --shadow-primary-button: 0 2px 5px rgba(0, 0, 0, 0.4);
+  --shadow-primary-button-dark: 0 2px 5px rgba(0, 0, 0, 0.25);
+
+  --shadow-secondary-button: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-secondary-button-dark: 0 2px 5px rgba(0, 0, 0, 0.25);
 
 }
 
@@ -52,11 +70,6 @@ html element*/
 .bg-home-image-dark,
 [class*="bg-home-image"] {
   transition: opacity 1000ms ease-in-out !important;
-}
-/*Except the menu on phones, which has z-index of 100 so I target it through that*/
-.menu-transition,
-[class*="z-\\[100\\]"] {
-  transition: opacity 700ms ease-in-out, visibility 800ms ease-in-out, background-color 800ms ease-in-out !important;
 }
 
 /*Disable transitions during page load to prevent flash*/
@@ -106,8 +119,7 @@ html, body, #root {
 body {
   font-family: var(--font-family-sans);
   line-height: 1.2;
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -127,43 +139,50 @@ body {
 }
 
 h1 {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 500;
+  font-size: 2rem;
 }
 
-h2 {
-  font-weight: 400;
+a {
+  cursor: pointer;
 }
 
 strong {
   font-weight: 600;
 }
 
+
 .button-primary {
   display: flex;
   align-items: center;
-  width: fit-content;
-  padding: 1rem;
-  line-height: 1;
-  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 50rem;
   font-weight: 400;
   text-transform: uppercase;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  cursor: pointer;
 }
 
-.button-primary:hover {
-  background-color: var(--color-secondary-light);
-  color: var(--color-black);
+.dark .button-primary {
+  background-color: var(--color-main-accent-dark);
 }
 
-.button-primary:active {
-  background-color: var(--color-secondary-light);
+.button-secondary {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 50rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: #FFD5E6;
+  color: #C44B45;
+  cursor: pointer;
 }
 
-.dark .button-primary:hover {
-  background-color: var(--color-secondary-light);
-}
-
-.dark .button-primary:active {
-  background-color: var(--color-secondary-dark);
+.dark .button-secondary{
+  background-color: #645D85;
+  color: var(--color-white);
 }
 
 button.themeButton {
@@ -198,69 +217,28 @@ button.themeButton:active {
   background-color: var(--color-accent-light);
 }
 
+input, textarea {
+  background-color: var(--color-input-bg);
+  box-shadow: inset 0 2px 3px rgba(78, 37, 37, 0.5);
+  padding: 0.5rem 1rem;
+}
+
+.dark input, .dark textarea {
+  background-color: var(--color-input-bg-dark);
+  box-shadow: inset 0 2px 3px rgba(46, 43, 87, 1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-gps-input);
+}
+
+.dark input::placeholder, .dark textarea::placeholder {
+  color: var(--color-text-gps-input-dark);
+}
 button.trasp{
   background-color: transparent;
 }
 
-p.pcard {
-  font-weight: 400;
-}
-
-/*Dots below carousel on work page*/
-.dots {
-  display: flex;
-  padding: 10px 0;
-  justify-content: center;
-}
-
-.dot {
-  border: none;
-  width: 10px;
-  height: 10px;
-  background: var(--color-black);
-  border-radius: 50%;
-  margin: 0 5px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.dark.dot{
-  background: var(--color-white);
-}
-
-.dot:focus {
-  outline: none;
-  background: var(--color-secondary-light);
-}
-
-.dot:hover {
-  outline: none;
-  background: var(--color-secondary-light);
-}
-
-.dot.active {
-  background: var(--color-accent-light);
-}
-
-.dark.dot.active {
-  background: var(--color-primary-dark);
-}
-
-.tool-tooltip {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%);
-  opacity: 0;
-  transition: all 0.2s ease;
-  font-size: 0.875rem; /*Tailwind's text-sm*/
-  padding: 0.5rem;
-}
-
-.group:hover .tool-tooltip,
-.group:focus-within .tool-tooltip {
-  opacity: 1;
-}
 
 @keyframes slow-spin {
   from {
@@ -269,8 +247,4 @@ p.pcard {
   to {
     transform: rotate(360deg);
   }
-}
-
-.animate-slow-spin {
-  animation: slow-spin 4s linear infinite;
 }

@@ -1,95 +1,79 @@
 export default {
   nav: {
+    home: "Home",
     work: "Lavori",
     blog: "Blog",
-    contacts: "Contatti",
-    aria: {
-      home: "Vai alla Home Page",
-      toggleMenu: "Apri Menu"
-    }
+    contacts: "Contatti"
   },
   routes: {
     home: {
       h1: "Milena Cipriani",
       h2: "Fullstack developer",
-      h3: "Da un mockup in Figma all'infrastruttura in produzione",
+      p: "Da un mockup in Figma all'infrastruttura in produzione",
       p1: "Sviluppo applicazioni web end to end: dall'interfaccia utente all'infrastruttura sottostante, che progetto con un approccio security-first. Mi importa scrivere codice manutenibile, costruire sistemi affidabili e realizzare prodotti pensati per chi li usa.",
-      p2: "Disponibile per ruoli fullstack da remoto o ibridi.",
-      button: "Vedi i miei progetti",
-      aria: {
-        button: "Traduci in Inglese - Switch to English"
-      }
+      p2: "Disponibile per ruoli frontend o fullstack da remoto o ibridi.",
+      button: "Vedi i miei lavori",
+      contactMe: "o contattami"
     },
     work: {
       section1: {
         h1: "Ecco a cosa\n sto lavorando",
-        selectedProject: {
-          projectName: 'The Left Drawer',
-          description: "Cloud privato, senza subscriptions, nessun accesso di terze parti, progettato per girare su Raspberry Pi. L'obbiettivo: renderlo piacevole da usare per chi non ha competenze tecniche.<br/>Demo live su VPS, mentre l'applicazione reale su rete ZeroTier privata.<br/><br/>⦁ <strong>Auth stratificata</strong> ➜ cookie di refresh httpOnly contro XSS, token con hash SHA-256 per evitare che una violazione del DB esponga sessioni valide, algoritmo HS256 fissato per prevenire confusion attack, cookie con path-scope su /api/auth per ridurre la superficie di trasmissione<br/>⦁ <strong>Lazy loading autenticato</strong> ➜ &lt;img src&gt; non ha header di autenticazione, quindi le anteprime vengono recuperate come blob tramite IntersectionObserver, convertite in object URL e revocate all'unmount per prevenire leak di memoria<br/>⦁ <strong>Operazioni sui file in caso di errore parziale</strong> ➜ upload, spostamenti ed eliminazioni vengono eseguiti in transazioni PostgreSQL con staging in una cartella cestino; dove la vera atomicità con il filesystem non è possibile, i fallimenti vengono loggati esplicitamente"
-        },
-        carousel: {
-          card0: {
-            projectName: "Il mio portfolio",
-            description: "Costruito per dimostrare il mio attuale approccio al frontend: architettura a componenti pulita, markup accessibile, tema chiaro/scuro e localizzazione completa italiano/inglese. Dipendenze volutamente ridotte al minimo. Il design è passato per Figma prima di scrivere una sola riga di codice.",
+        works: {
+          0: {
+            name: 'Soluzione storage cloud self-hosted',
+            description: 'Costruito per girare su Raspberry Pi per una userbase non tecnica, tenuto privato dietro ad una rete ZeroTier. Demo disponibile, hostata su VPS.',
+            feature1: 'Auth stratificata, loading di immagini con autenticazione, rollback al fallimento delle operazioni su file.',
+            feature2: 'Credenziali Demo:\n User: Demo | Password: DemoPw123'
           },
-          card1: {
-            projectName: "Centro di formazione wellness",
-            description: "Rifatto da zero il sito di un centro di formazione per professionisti nel settore wellness: nuova identità visiva progettata in Figma, localizzazione completa italiano/spagnolo con cambio lingua istantaneo, e punteggio Lighthouse portato da 60 a 100 tramite ottimizzazione dei bundle, lazy loading e compressione degli asset.",
+          1: {
+            name: 'Portfolio Personale',
+            description: 'Costruito per rispecchiare il mio attuale approccio al frontend.',
+            feature1: 'Architettura componenti pulita, markup accessibile, tema chiaro/scuro, completa localizzazione Italiano/Inglese. Dipendenze intenzionalmente minime.',
+            feature2: 'Design ideato in Figma prima di una singola linea di codice.'
           },
-          card2: {
-            projectName: "Portfolio di un cliente",
-            description: "Consegna end-to-end per un primo cliente indipendente: UI/UX progettata in Figma per rispecchiare il suo brand, sviluppata come single-page application in Vue.js e TypeScript, distribuita con CI/CD automatizzato.\nPunteggi Lighthouse: 97 Performance • 95 Accessibilità • 100 Best Practices • 100 SEO.",
+          2: {
+            name: 'Sito per Centro di Formazione',
+            description: 'Migrazione e ricostruzione del sito di un Centro di Formazione nel settore Wellness.',
+            feature1: 'Nuova identità visiva (Figma), CI/CD via GitHub Actions.',
+            feature2: 'Punteggio performance Lighthouse aumentato da 60 a 100 attraverso ottimizzazione bundle, lazy loading, e compressione assets.'
           },
-          card3: {
-            projectName: "App di containerizzazione",
-            description: "Uno dei primi progetti full-stack: React, Node/Express, PostgreSQL, orchestrato con Docker Compose tra ambienti di sviluppo e produzione. Incluso per mostrare il punto di partenza. The Left Drawer è ciò che è venuto dopo.",
-          },
-        },
+          3: {
+            name: "Portfolio per cliente",
+            description: 'Consegna end-to-end per cliente indipendente.',
+            feature1: 'Ciclo completo dal design al deployment.',
+            feature2: 'Punteggi Lighthouse: 97 Performance • 95 Accessibility • 100 Best Practices • 100 SEO.'
+          }
+        }
       },
       section2: {
         h1: "E con cosa lavoro",
         button: "Iniziamo a collaborare",
       },
-      aria: {
-        section1: {
-          carousel: "Tutti i miei progetti",
-          dots: "Punti di navigazione per la visualizzazione del carosello dei progetti",
-          cards: {
-            demoButton: "Visualizza progetto Live"
-          }
-        },
-        section2: {
-          toolkit: "Che tools, frameworks e linguaggi uso",
-          button: "Visita la pagina dei contatti"
-        }
-      }
     },
     blog: {
       h1: "Prossimamente...",
     },
     contacts:{
-      h1: "Mi trovi qui",
-      p: "Fuso Orario CEST (UTC+2)",
-      availability: 'Disponibile per ruoli fullstack da remoto o ibridi',
-      name: 'Nome',
-      object: 'Oggetto',
-      message: 'Messaggio',
-      submitForm: 'Invia messaggio',
+      section1: {
+        h1: "Mi trovi qui",
+        gps: "Fuso Orario CEST (UTC+2)",
+        availability: 'Disponibile per ruoli fullstack da remoto o ibridi',
+        form: {
+          name: 'Nome',
+          object: 'Oggetto',
+          message: 'Messaggio',
+          formAnswer: "Messaggio inviato",
+          submitForm: 'Invia messaggio',
+        }
+      },
+      section2: {
+        h1: 'Colleghiamoci'
+      },
       aria: {
         whatsapp: "Scrivimi un messaggio su Whatsapp",
         linkedin: "Visita il mio profilo Linkedin",
         github: "Visita il mio profilo GitHub",
       },
-      formAnswer: "Messaggio inviato",
-    },
-    phoneMenu: {
-      work: "Lavori",
-      blog: "Blog",
-      contacts: "Contatti",
-      aria: {
-        x: "Chiudi notifica",
-        home: "Vai alla Home Page"
-      }
     }
   }
 }

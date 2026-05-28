@@ -1,48 +1,47 @@
 export interface TranslationStructure {
   nav: {
+    home: string
     work: string
     blog: string
     contacts: string
-    aria: {
-      home: string
-      toggleMenu: string
-    }
   }
   routes: {
     home: {
       h1: string
       h2: string
-      h3: string
+      p: string
       p1: string
       p2: string
       button: string
-      aria: {
-        button: string
-      }
+      contactMe: string
     }
     work: {
       section1: {
         h1: string
-        selectedProject: {
-          projectName: string
-          description: string
-        }
-        carousel: {
-          card0: {
-            projectName: string
+        works: {
+          0: {
+            name: string
             description: string
+            feature1: string
+            feature2: string
           }
-          card1: {
-            projectName: string
+          1: {
+            name: string
             description: string
+            feature1: string
+            feature2: string
           }
-          card2: {
-            projectName: string
+          2: {
+            name: string
             description: string
+            feature1: string
+            feature2: string
           }
-          card3: {
-            projectName: string
+          3: {
+            name: string
             description: string
+            feature1: string
+            feature2: string
           }
         }
       }
@@ -50,45 +49,30 @@ export interface TranslationStructure {
         h1: string
         button: string
       }
-      aria: {
-        section1: {
-          carousel: string
-          dots: string
-          cards: {
-            demoButton: string
-          }
-        }
-        section2: {
-          toolkit: string
-          button: string
-        }
-      }
     }
     blog: {
       h1: string
     }
     contacts:{
-      h1: string
-      p: string
-      availability: string
-      name: string
-      object: string
-      message: string
-      submitForm: string
+      section1: {
+        h1: string
+        gps: string
+        availability: string
+        form: {
+          name: string
+          object: string
+          message: string
+          formAnswer: string
+          submitForm: string
+        }
+      }
+      section2: {
+        h1: string
+      }
       aria: {
         whatsapp: string
         linkedin: string
         github: string
-      }
-      formAnswer: string
-    },
-    phoneMenu: {
-      work: string
-      blog: string
-      contacts: string
-      aria: {
-        x: string
-        home: string
       }
     }
   }
@@ -97,59 +81,51 @@ export interface TranslationStructure {
 export type SupportedLanguages = 'en' | 'it';
 
 export type TranslationKey =
+  | 'nav.home'
   | 'nav.work'
   | 'nav.blog'
   | 'nav.contacts'
-  | 'nav.aria.home'
-  | 'nav.aria.toggleMenu'
 
   | 'routes.home.h1'
   | 'routes.home.h2'
-  | 'routes.home.h3'
+  | 'routes.home.p'
   | 'routes.home.p1'
   | 'routes.home.p2'
   | 'routes.home.button'
-  | 'routes.home.aria.button'
+  | 'routes.home.contactMe'
 
   | 'routes.work.section1.h1'
-  | 'routes.work.section1.selectedProject.projectName'
-  | 'routes.work.section1.selectedProject.description'
-  | 'routes.work.section1.carousel.card0.projectName'
-  | 'routes.work.section1.carousel.card0.description'
-  | 'routes.work.section1.carousel.card1.projectName'
-  | 'routes.work.section1.carousel.card1.description'
-  | 'routes.work.section1.carousel.card2.projectName'
-  | 'routes.work.section1.carousel.card2.description'
-  | 'routes.work.section1.carousel.card3.projectName'
-  | 'routes.work.section1.carousel.card3.description'
-  | 'routes.work.section1.carousel.card4.projectName'
-  | 'routes.work.section1.carousel.card4.description'
+  | 'routes.work.section1.works.0.name'
+  | 'routes.work.section1.works.0.description'
+  | 'routes.work.section1.works.0.feature1'
+  | 'routes.work.section1.works.0.feature2'
+  | 'routes.work.section1.works.1.name'
+  | 'routes.work.section1.works.1.description'
+  | 'routes.work.section1.works.1.feature1'
+  | 'routes.work.section1.works.1.feature2'
+  | 'routes.work.section1.works.2.name'
+  | 'routes.work.section1.works.2.description'
+  | 'routes.work.section1.works.2.feature1'
+  | 'routes.work.section1.works.2.feature2'
+  | 'routes.work.section1.works.3.name'
+  | 'routes.work.section1.works.3.description'
+  | 'routes.work.section1.works.3.feature1'
+  | 'routes.work.section1.works.3.feature2'
 
   | 'routes.work.section2.h1'
   | 'routes.work.section2.button'
 
-  | 'routes.work.aria.section1.carousel'
-  | 'routes.work.aria.section1.dots'
-  | 'routes.work.aria.section1.cards.demoButton'
-  | 'routes.work.aria.section2.toolkit'
-  | 'routes.work.aria.section2.button'
-
   | 'routes.blog.h1'
 
-  | 'routes.contacts.h1'
-  | 'routes.contacts.p'
-  | 'routes.contacts.availability'
-  | 'routes.contacts.name'
-  | 'routes.contacts.object'
-  | 'routes.contacts.message'
-  | 'routes.contacts.submitForm'
+  | 'routes.contacts.section1.h1'
+  | 'routes.contacts.section1.gps'
+  | 'routes.contacts.section1.availability'
+  | 'routes.contacts.section1.form.name'
+  | 'routes.contacts.section1.form.object'
+  | 'routes.contacts.section1.form.message'
+  | 'routes.contacts.section1.form.formAnswer'
+  | 'routes.contacts.section1.form.submitForm'
+  | 'routes.contacts.section2.h1'
   | 'routes.contacts.aria.whatsapp'
   | 'routes.contacts.aria.linkedin'
   | 'routes.contacts.aria.github'
-  | 'routes.contacts.formAnswer'
-
-  | 'routes.phoneMenu.work'
-  | 'routes.phoneMenu.blog'
-  | 'routes.phoneMenu.contacts'
-  | 'routes.phoneMenu.aria.x'
-  | 'routes.phoneMenu.aria.home'
