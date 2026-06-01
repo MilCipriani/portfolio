@@ -21,24 +21,28 @@ export interface TranslationStructure {
         works: {
           0: {
             name: string
+            alt: string
             description: string
             feature1: string
             feature2: string
           }
           1: {
             name: string
+            alt:string
             description: string
             feature1: string
             feature2: string
           }
           2: {
             name: string
+            alt:string
             description: string
             feature1: string
             feature2: string
           }
           3: {
             name: string
+            alt:string
             description: string
             feature1: string
             feature2: string
@@ -96,18 +100,22 @@ export type TranslationKey =
 
   | 'routes.work.section1.h1'
   | 'routes.work.section1.works.0.name'
+  | 'routes.work.section1.works.0.alt'
   | 'routes.work.section1.works.0.description'
   | 'routes.work.section1.works.0.feature1'
   | 'routes.work.section1.works.0.feature2'
   | 'routes.work.section1.works.1.name'
+  | 'routes.work.section1.works.1.alt'
   | 'routes.work.section1.works.1.description'
   | 'routes.work.section1.works.1.feature1'
   | 'routes.work.section1.works.1.feature2'
   | 'routes.work.section1.works.2.name'
+  | 'routes.work.section1.works.2.alt'
   | 'routes.work.section1.works.2.description'
   | 'routes.work.section1.works.2.feature1'
   | 'routes.work.section1.works.2.feature2'
   | 'routes.work.section1.works.3.name'
+  | 'routes.work.section1.works.3.alt'
   | 'routes.work.section1.works.3.description'
   | 'routes.work.section1.works.3.feature1'
   | 'routes.work.section1.works.3.feature2'

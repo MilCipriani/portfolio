@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './hooks/useTheme.tsx'
 import Navbar from './components/Navbar.tsx'
@@ -10,6 +11,19 @@ function AppContent() {
   const location = useLocation()
   
   const isHomePage = location.pathname === '/'
+
+
+  useEffect(() => {
+    const canonical = `https://milena.work${location.pathname}`
+    
+    let link = document.querySelector("link[rel='canonical']")
+    if (!link) {
+      link = document.createElement('link')
+      link.setAttribute('rel', 'canonical')
+      document.head.appendChild(link)
+    }
+    link.setAttribute('href', canonical)
+  }, [location.pathname])
   
   return (
     <div className={`relative h-full w-full flex flex-col items-center justify-center pt-12 pb-6 ${
