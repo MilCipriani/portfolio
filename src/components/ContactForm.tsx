@@ -1,9 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../translation/index'
+
+import Whatsapp from '../assets/Contacts/Whatsapp.svg?react'
+import Linkedin from '../assets/Contacts/Linkedin.svg?react'
+import Github from '../assets/Contacts/Github.svg?react'
 
 export default function ContactForm() {
   const [result, setResult] = useState("");
   const { t } = useLanguage();
+  const [whatsappLink, setWhatsappLink] = useState('')
+
+  //This picks how to open whatsapp depending on the device
+  useEffect(() => {
+    const isMobile = /Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      setWhatsappLink("whatsapp://send?phone=393492996483");//Mobile app
+    } else {
+      setWhatsappLink("https://web.whatsapp.com/send?phone=393492996483");//WhatsappWeb
+    }
+  }, []);//Runs once at mount
 
   const onSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,6 +53,15 @@ export default function ContactForm() {
       <textarea name="message" placeholder={t('routes.contacts.section1.form.message')} required className='p-2 rounded-2xl font-medium w-full'></textarea>
       <span className='font-semibold py-2 px-3 text-black'>{result}</span>
       <button type="submit" className='button-primary shadow-home-button-light dark:shadow-primary-button-dark'>{t('routes.contacts.section1.form.submitForm')}</button>
+
+        <hr className='w-full text-secondary-text dark:text-secondary-text-dark'></hr>
+        <div className='w-full flex items-center justify-center gap-6'>
+          <a href={whatsappLink} aria-label={t('routes.contacts.aria.whatsapp')} target="_blank" rel="noopener noreferrer">
+            <Whatsapp aria-hidden="true" className='md:w-14 md:h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/>
+          </a>
+          <a href='https://www.linkedin.com/in/milena-cipriani' aria-label={t('routes.contacts.aria.linkedin')} target="_blank" rel="noopener noreferrer"><Linkedin aria-hidden="true" className='w-14 h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
+          <a href='https://github.com/MilCipriani' aria-label={t('routes.contacts.aria.github')} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" className='w-14 h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/></a>
+        </div>
     </form>
   );
 }

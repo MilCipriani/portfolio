@@ -21,24 +21,28 @@ export default {
         works: {
           0: {
             name: 'Self-hosted cloud storage solution',
+            alt: 'Presentation of the App',
             description: 'Built to run on a Raspberry Pi for non-technical userbase, kept private behind a ZeroTier network. Demo available, hosted on a VPS.',
             feature1: 'Layered Auth, authenticated Image Loading, file operations with rollback on failure.',
             feature2: 'Demo credentials:\n User: Demo | Password: DemoPw123'
           },
           1: {
             name: 'My Personal Portfolio',
+            alt: 'Screenshot of the website',
             description: 'Built to reflect how I currently approach frontend work.',
             feature1: 'Clean component architecture, accessible markup, dark/light theming, and full Italian/English localization. Intentionally kept dependencies minimal.',
             feature2: 'The design went through Figma before a single line of code.'
           },
           2: {
             name: 'Training Center Website',
+            alt: 'Screenshot of the website',
             description: 'Migrated and rebuilt a wellness training center site.',
             feature1: 'New visual identity (Figma), CI/CD via GitHub Actions.',
             feature2: 'Lighthouse performance score taken from 60 to 100 through bundle optimization, lazy loading, and asset compression.'
           },
           3: {
             name: "Client's Portfolio",
+            alt: 'Screenshot of the website',
             description: 'End-to-end delivery for an independent client.',
             feature1: 'Full lifecycle from design to deployment.',
             feature2: 'Lighthouse scores: 97 Performance • 95 Accessibility • 100 Best Practices • 100 SEO.'

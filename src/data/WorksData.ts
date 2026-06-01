@@ -9,6 +9,7 @@ export interface WorksData {
   id: string
   highlighted: boolean
   imageURL: string | undefined
+  alt: TranslationKey
   tags: Array<string>
   name: TranslationKey
   description: TranslationKey
@@ -25,6 +26,7 @@ export const worksData: WorksData[] = [
     id: "0",
     highlighted: true,
     imageURL: TLD,
+    alt: "routes.work.section1.works.0.alt",
     tags: ['Docker', 'NGINX', 'Expressjs', 'PostgreSQL', 'Typescript', 'React', 'Figma'],
     name: "routes.work.section1.works.0.name",
     description: "routes.work.section1.works.0.description",
@@ -38,6 +40,7 @@ export const worksData: WorksData[] = [
     id: "1",
     highlighted: false,
     imageURL: Portfolio,
+    alt: "routes.work.section1.works.1.alt",
     tags: ['Typescript', 'React', 'Tailwind CSS', 'GitHub Actions', 'Figma'],
     name: "routes.work.section1.works.1.name",
     description: "routes.work.section1.works.1.description",
@@ -49,6 +52,7 @@ export const worksData: WorksData[] = [
     id: "2",
     highlighted: false,
     imageURL: TrainingCenter,
+    alt: "routes.work.section1.works.2.alt",
     tags: ['Typescript', 'React', 'Tailwind CSS', 'GitHub Actions', 'Figma'],
     name: "routes.work.section1.works.2.name",
     description: "routes.work.section1.works.2.description",
@@ -62,6 +66,7 @@ export const worksData: WorksData[] = [
     id: "3",
     highlighted: false,
     imageURL: ClientPortfolio,
+    alt: "routes.work.section1.works.3.alt",
     tags: ['Docker', 'NGINX', 'Expressjs', 'PostgreSQL', 'Typescript', 'React', 'Figma'],
     name: "routes.work.section1.works.3.name",
     description: "routes.work.section1.works.3.description",

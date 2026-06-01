@@ -21,24 +21,28 @@ export default {
         works: {
           0: {
             name: 'Soluzione storage cloud self-hosted',
+            alt: "Presentazione dell'app",
             description: 'Costruito per girare su Raspberry Pi per una userbase non tecnica, tenuto privato dietro ad una rete ZeroTier. Demo disponibile, hostata su VPS.',
             feature1: 'Auth stratificata, loading di immagini con autenticazione, rollback al fallimento delle operazioni su file.',
             feature2: 'Credenziali Demo:\n User: Demo | Password: DemoPw123'
           },
           1: {
             name: 'Portfolio Personale',
+            alt: 'Screenshot del sito',
             description: 'Costruito per rispecchiare il mio attuale approccio al frontend.',
             feature1: 'Architettura componenti pulita, markup accessibile, tema chiaro/scuro, completa localizzazione Italiano/Inglese. Dipendenze intenzionalmente minime.',
             feature2: 'Design ideato in Figma prima di una singola linea di codice.'
           },
           2: {
             name: 'Sito per Centro di Formazione',
+            alt: 'Screenshot del sito',
             description: 'Migrazione e ricostruzione del sito di un Centro di Formazione nel settore Wellness.',
             feature1: 'Nuova identità visiva (Figma), CI/CD via GitHub Actions.',
             feature2: 'Punteggio performance Lighthouse aumentato da 60 a 100 attraverso ottimizzazione bundle, lazy loading, e compressione assets.'
           },
           3: {
             name: "Portfolio per cliente",
+            alt: 'Screenshot del sito',
             description: 'Consegna end-to-end per cliente indipendente.',
             feature1: 'Ciclo completo dal design al deployment.',
             feature2: 'Punteggi Lighthouse: 97 Performance • 95 Accessibility • 100 Best Practices • 100 SEO.'

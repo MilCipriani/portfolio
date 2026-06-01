@@ -151,7 +151,6 @@ strong {
   font-weight: 600;
 }
 
-
 .button-primary {
   display: flex;
   align-items: center;
@@ -159,13 +158,24 @@ strong {
   border-radius: 50rem;
   font-weight: 400;
   text-transform: uppercase;
-  background-color: var(--color-black);
+  background: linear-gradient(15deg, var(--color-black), var(--color-home-text), #fb3c32, #ff2b2b) no-repeat;
+  background-size: 2000%;
   color: var(--color-white);
+  border: none;
+  background-position: left center;
+  transition: background 2s ease;
   cursor: pointer;
 }
 
 .dark .button-primary {
-  background-color: var(--color-main-accent-dark);
+  background: linear-gradient(15deg, var(--color-main-accent-dark), var(--color-home-text-dark), #ed57f8, #f821d0 ) no-repeat;
+  background-size: 2000%;
+  background-position: left center;
+}
+
+.button-primary:hover {
+  background-size: 320%;
+  background-position: right center;
 }
 
 .button-secondary {
@@ -175,14 +185,24 @@ strong {
   border-radius: 50rem;
   font-weight: 400;
   text-transform: uppercase;
-  background-color: #FFD5E6;
+  background: linear-gradient(15deg, #FFD5E6, #ffe8d0) no-repeat;
+  background-size: 2000%;
+  background-position: left center;
+  transition: background 2s ease;
   color: #C44B45;
   cursor: pointer;
 }
 
 .dark .button-secondary{
-  background-color: #645D85;
+  background: linear-gradient(15deg, #645D85, #9b8fd0) no-repeat;
+  background-size: 2000%;
+  background-position: left center;
   color: var(--color-white);
+}
+
+.button-secondary:hover {
+  background-size: 320%;
+  background-position: right center;
 }
 
 button.themeButton {
@@ -198,19 +218,17 @@ button.themeButton {
 }
 
 button.themeButton:hover {
-  background-color: var(--color-accent-light);
-}
-
-button.themeButton:active {
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-home-text);
 }
 
 .dark button.themeButton {
   background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .dark button.themeButton:hover {
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-main-accent-dark);
+  color: var(--color-white);
 }
 
 .dark button.themeButton:active {
