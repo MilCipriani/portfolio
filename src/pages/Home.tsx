@@ -25,8 +25,8 @@ const { t } = useLanguage()
         </div>
 
         <div className='flex flex-col items-center justify-center gap-6'>
-          <Link to="/work" className="button-primary shadow-home-button-light dark:shadow-primary-button-dark" role='button'>{t('routes.home.button')}</Link>
-          <Link to="/contacts" className="text-sm text-home-text dark:text-home-text-dark" role='button'>{t('routes.home.contactMe')}</Link>
+          <Link to="/work/" className="button-primary shadow-home-button-light dark:shadow-primary-button-dark" role='button'>{t('routes.home.button')}</Link>
+          <Link to="/contacts/" className="text-sm text-home-text dark:text-home-text-dark" role='button'>{t('routes.home.contactMe')}</Link>
         </div>
       </section>
       

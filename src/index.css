@@ -14,8 +14,6 @@ html element*/
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'IBM Plex Serif', Georgia, serif;
 
-  --background-image-home-image: url('/src/assets/BGL.webp');
-  --background-image-home-image-dark: url('/src/assets/BGD.webp');
 
 /*COLOR PALETTE ======================================================*/
 
@@ -25,7 +23,7 @@ html element*/
   --color-home-text: #C44B45;
   --color-home-text-dark: #DF94FF;
   --color-copyright: #8B634E;
-  --color-copyright-dark: #513B98;
+  --color-copyright-dark: #937CA0;
   --color-main-accent: #FFAA7E;
   --color-main-accent-dark: #8763FF;
   --color-work-card-bg: #F8F8F8;
@@ -143,9 +141,30 @@ h1 {
   font-size: 2rem;
 }
 
+h2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding-top: 2rem;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding-top: 2rem;
+}
+
+p {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  white-space: pre-line;
+  line-height: 1.3rem;
+}
+
 a {
   cursor: pointer;
 }
+
 
 strong {
   font-weight: 600;
@@ -265,4 +284,178 @@ button.trasp{
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ============ MARKDOWN FILES ========================================================*/
+
+.article-markdown a {
+  color: var(--color-tags-text)
+}
+
+.dark .article-markdown a {
+  color: var(--color-main-accent-dark)
+}
+
+.article-markdown ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.article-markdown ul li::marker {
+  color: var(--color-secondary-text);
+  font-weight: 600;
+}
+
+.dark .article-markdown ul li::marker {
+  color: var(--color-secondary-text-dark);
+  font-weight: 600;
+}
+
+.article-markdown ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.article-markdown ol li::marker {
+  color: var(--color-secondary-text);
+  font-weight: 600;
+}
+
+.dark .article-markdown ol li::marker {
+  color: var(--color-secondary-text-dark);
+  font-weight: 600;
+}
+
+.article-markdown li {
+  margin: 0.25rem 0;
+}
+
+
+/*==================================== CODE BLOCK THEME ==================================================== */
+
+:root {
+  --code-bg: #2A2420;
+  --code-bg-inline: #F8F8F8;
+  --code-text: var(--color-white);
+  --code-border: rgba(255, 170, 126, 0.15);
+
+  --code-keyword: var(--color-main-accent);
+  --code-title: var(--color-home-text);
+  --code-string: #E8927C;
+  --code-comment: var(--color-secondary-text);
+  --code-number: var(--color-text-gps-input);
+  --code-variable: #D9C7BE;
+  --code-built-in: var(--color-main-accent);
+  --code-attr: var(--color-tags-text);
+  --code-punctuation: #B8A99E;
+}
+
+.dark {
+  --code-bg: #231F2C;
+  --code-bg-inline: #4F485C;
+  --code-text: var(--color-white);
+  --code-border: rgba(135, 99, 255, 0.2);
+
+  --code-keyword: #C4B3FF;
+  --code-title: var(--color-home-text-dark);
+  --code-string: #C9A8FF;
+  --code-comment: var(--color-secondary-text-dark);
+  --code-number: var(--color-text-gps-input-dark);
+  --code-variable: #CBC0E0;
+  --code-built-in: var(--color-main-accent-dark);
+  --code-attr: var(--color-tags-text-dark);
+  --code-punctuation: #A79BC2;
+}
+
+/* Block code */
+.article-markdown pre code.hljs {
+  display: block;
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--code-border);
+  box-shadow: var(--shadow-primary-button);
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+}
+
+.dark .article-markdown pre code.hljs {
+  box-shadow: var(--shadow-primary-button-dark);
+}
+
+/* Inline code */
+.article-markdown :not(pre) > code {
+  background: var(--code-bg);
+  color: var(--code-keyword);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+/* Token colors */
+.article-markdown .hljs-keyword,
+.article-markdown .hljs-selector-tag,
+.article-markdown .hljs-literal {
+  color: var(--code-keyword);
+  font-weight: 600;
+}
+
+.article-markdown .hljs-title,
+.article-markdown .hljs-title.function_,
+.article-markdown .hljs-title.class_ {
+  color: var(--code-title);
+}
+
+.article-markdown .hljs-string,
+.article-markdown .hljs-regexp {
+  color: var(--code-string);
+}
+
+.article-markdown .hljs-comment,
+.article-markdown .hljs-quote {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.article-markdown .hljs-number {
+  color: var(--code-number);
+}
+
+.article-markdown .hljs-variable,
+.article-markdown .hljs-name,
+.article-markdown .hljs-template-variable {
+  color: var(--code-variable);
+}
+
+.article-markdown .hljs-built_in,
+.article-markdown .hljs-type {
+  color: var(--code-built-in);
+}
+
+.article-markdown .hljs-attr,
+.article-markdown .hljs-attribute,
+.article-markdown .hljs-tag {
+  color: var(--code-attr);
+}
+
+.article-markdown .hljs-punctuation,
+.article-markdown .hljs-operator {
+  color: var(--code-punctuation);
+}
+
+.article-markdown .hljs-deletion {
+  background: rgba(196, 75, 69, 0.15);
+}
+
+.article-markdown .hljs-addition {
+  background: rgba(255, 170, 126, 0.15);
 }

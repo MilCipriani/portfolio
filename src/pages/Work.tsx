@@ -64,7 +64,7 @@ export default function Work() {
           </div>
         </div>
 
-        <Link to="/contacts" className="button-primary shadow-primary-button dark:shadow-primary-button-dark">{t('routes.work.section2.button')}</Link>
+        <Link to="/contacts/" className="button-primary shadow-primary-button dark:shadow-primary-button-dark">{t('routes.work.section2.button')}</Link>
         
 
       </section>

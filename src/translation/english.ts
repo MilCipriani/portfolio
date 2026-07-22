@@ -55,7 +55,7 @@ export default {
       },
     },
     blog: {
-      h1: "Coming soon ...",
+      h1: "My thinking and learning",
     },
     contacts: {
       section1: {

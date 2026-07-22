@@ -6,6 +6,7 @@ import Home from './pages/Home.tsx'
 import Work from './pages/Work.tsx'
 import Blog from './pages/Blog.tsx'
 import Contacts from './pages/Contacts.tsx'
+import BlogPost from './components/BlogPost.tsx'
 
 function AppContent() {
   const location = useLocation()
@@ -38,6 +39,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </div>
