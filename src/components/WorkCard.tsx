@@ -58,9 +58,9 @@ export default function Card({ card }:WorksProps) {
         
         <div className='flex flex-col items-start justify-center gap-9'>
           <h2 className='font-serif text-lg font-semibold'>{t(name)}</h2>
-          <p className='text-justify hyphens-auto whitespace-pre-line'>{t(description)}</p>
-          <p className='text-justify hyphens-auto whitespace-pre-line text-secondary-text dark:text-secondary-text-dark'>{t(feature1)}</p>
-          <p className='text-justify hyphens-auto whitespace-pre-line text-secondary-text dark:text-secondary-text-dark'>{t(feature2)}</p>
+          <p className=''>{t(description)}</p>
+          <p className='text-secondary-text dark:text-secondary-text-dark'>{t(feature1)}</p>
+          <p className='text-secondary-text dark:text-secondary-text-dark'>{t(feature2)}</p>
         </div>
 
       </div>

@@ -54,7 +54,7 @@ export default function ContactForm() {
       <span className='font-semibold py-2 px-3 text-black'>{result}</span>
       <button type="submit" className='button-primary shadow-home-button-light dark:shadow-primary-button-dark'>{t('routes.contacts.section1.form.submitForm')}</button>
 
-        <hr className='w-full text-secondary-text dark:text-secondary-text-dark'></hr>
+        <hr className='w-full text-secondary-text/50 dark:text-secondary-text-dark'></hr>
         <div className='w-full flex items-center justify-center gap-6'>
           <a href={whatsappLink} aria-label={t('routes.contacts.aria.whatsapp')} target="_blank" rel="noopener noreferrer">
             <Whatsapp aria-hidden="true" className='md:w-14 md:h-14 xxs:w-12 xxs:h-12 hover:text-accent-light dark:hover:text-accent-dark active:text-secondary-light'/>
