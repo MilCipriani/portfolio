@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 import ReactMarkdown from 'react-markdown'
 import remarkBreaks from 'remark-breaks'
 import rehypeRaw from 'rehype-raw'

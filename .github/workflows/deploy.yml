@@ -29,19 +29,21 @@ jobs:
 
     - name: Create SPA fallback and static routes
       run: | #multiline character
-        #404 fallback - if a route doesn't exist take me to my html, react router will think of it client side
         cp dist/index.html dist/404.html
 
-        #Static route copies
         ROUTES=("work" "blog" "contacts")
         for route in "${ROUTES[@]}"; do
           mkdir -p "dist/$route"
           cp dist/index.html "dist/$route/index.html"
         done
 
-        echo "milena.work" > dist/CNAME
+        for file in src/blogPosts/*.md; do
+          slug=$(basename "$file" .md)
+          mkdir -p "dist/blog/$slug"
+          cp dist/index.html "dist/blog/$slug/index.html"
+        done
 
-        #Prevent GitHub Pages from ignoring files starting with _
+        echo "milena.work" > dist/CNAME
         touch dist/.nojekyll
 
     - name: Deploy to GitHub Pages
