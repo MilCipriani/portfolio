@@ -1,6 +1,6 @@
 import { useLanguage } from '../translation/index'
 
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 
 import WorkCard from '../components/WorkCard'
 import { worksData } from '../data/WorksData';
@@ -24,7 +24,7 @@ export default function Work() {
   const { t } = useLanguage()
 
   return (
-    <main className="w-full h-fit flex flex-col gap-32 max-w-[1000px] mx-auto">
+    <main className="w-full h-fit flex flex-col gap-32 max-w-250 mx-auto">
       <section className="flex flex-col gap-20">
         <h1 id="projects-title" className="uppercase font-serif whitespace-pre-line text-4xl md:text-5xl lg:text-7xl">{t('routes.work.section1.h1')}</h1>
 

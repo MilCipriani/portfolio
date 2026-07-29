@@ -1,5 +1,5 @@
 import { useLanguage } from '../translation/index'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { posts } from '../data/posts';
 import Footer from '../components/Footer';
@@ -8,7 +8,7 @@ export default function Contacts() {
   const { t } = useLanguage()
 
   return (
-    <main className="w-full h-full flex flex-col gap-32 max-w-[1000px] mx-auto">
+    <main className="w-full h-full flex flex-col gap-32 max-w-250 mx-auto">
 			<h1 className="font-serif uppercase text-3xl xxs:text-4xl md:text-6xl lg:text-7xl">{t('routes.blog.h1')}</h1>
 
       <div className='mb-auto'>
