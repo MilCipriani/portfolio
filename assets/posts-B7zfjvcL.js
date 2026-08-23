@@ -20,7 +20,7 @@ I've recently discovered this feeling has an actual scientific explanation. We l
 That's lovely, but I quickly came to the conclusion I can't keep accumulating notes forever: it takes surprisingly little time to fill up a drawer.
 And that's when I googled it.
 
-![Google search results for the most popuar note-taking apps shows Obsidian and Notion at the top](Blog-post01-00.webp)
+![Google search results for the most popuar note-taking apps show Obsidian and Notion at the top](Blog-post01-00.webp)
 
 I will skip all the research I did to figure out which one was the best option for my use case, that's a rabbithole, but as the title spoiled: Obsidian.
 
