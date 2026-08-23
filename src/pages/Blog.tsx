@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { posts } from '../data/posts';
 import Footer from '../components/Footer';
 
-export default function Contacts() {
+export default function Blog() {
   const { t } = useLanguage()
 
   return (
@@ -14,7 +14,7 @@ export default function Contacts() {
       <div className='mb-auto'>
         {posts.map((p, index) => (
           <div key={p.slug}>
-            <Link className='flex flex-col gap-2' to={`/blog/${p.slug}`}>
+            <Link className='flex flex-col gap-2' to={`/blog/${p.slug}/`}>
               <h2>{p.title}</h2>
               <p className='text-secondary-text dark:text-secondary-text-dark text-sm'>{p.date}</p>
               <p>{p.description}</p>
