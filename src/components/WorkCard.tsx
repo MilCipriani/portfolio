@@ -46,7 +46,7 @@ export default function Card({ card }:WorksProps) {
     <section className={`relative h-full w-full flex flex-col items-center md:justify-center justify-center gap-12 px-4 shadow-light dark:shadow-dark ring-2 ring-inset ring-black/8 dark:ring-[#9F85D0]/10 pt-4 pb-9 rounded-xl ${isDark ? 'bg-work-card-bg-dark' : 'bg-work-card-bg'}`}>
       <img src={imageURL} alt={t(alt)} className='h-full max-h-80 rounded-lg z-10'/>
 
-      { highlighted && (<div className='absolute top-0 left-0 w-full h-[72px] bg-main-accent dark:bg-main-accent-dark rounded-t-xl z-0'></div>)}
+      { highlighted && (<div className='absolute top-0 left-0 w-full h-18 bg-main-accent dark:bg-main-accent-dark rounded-t-xl z-0'></div>)}
 
       <div className='flex flex-col items-center justify-center gap-11'>
 
