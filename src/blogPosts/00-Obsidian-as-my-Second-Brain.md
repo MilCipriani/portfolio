@@ -3,11 +3,11 @@ title: Obsidian as my Second Brain
 date: 21-07-2026
 description: A practical note-taking system for tracking and structuring projects, ideas, and everything in between: what I use, why it works, and how to set it up in under 10 minutes.
 tags: [Obsidian, Productivity]
+readingTime: 6mins
 published: true
 ---
 # Obsidian as my Second Brain
 
-Reading time 6 mins
 ## Why and which note taking app
 
 When life gets busy post-it notes multiply on the fridge. When I'm studying something new, papers are scattered on my desk, on the kitchen table and, if the topic is intricate enough, on the wall next to my calendar.
@@ -20,7 +20,7 @@ I've recently discovered this feeling has an actual scientific explanation. We l
 That's lovely, but I quickly came to the conclusion I can't keep accumulating notes forever: it takes surprisingly little time to fill up a drawer.
 And that's when I googled it.
 
-![Google search results for the most popuar note-taking apps show Obsidian and Notion at the top](Blog-post01-00.webp)
+![Google search results for the most popuar note-taking apps show Obsidian and Notion at the top](Blog-post00-00.webp)
 
 I will skip all the research I did to figure out which one was the best option for my use case, that's a rabbithole, but as the title spoiled: Obsidian.
 

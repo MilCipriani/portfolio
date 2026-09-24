@@ -38,6 +38,7 @@ html element*/
   --color-text-gps-input-dark: #BFACFF;
   --color-input-bg: #FFF2EE;
   --color-input-bg-dark: #7E76A5;
+  --color-button-secondary-text: #C44B45;
 
   --shadow-light: 0 4px 30px rgba(232, 232, 232, 1);
   --shadow-dark: 0 4px 30px rgba(59, 54, 68, 1);
@@ -51,6 +52,7 @@ html element*/
 
   --shadow-secondary-button: 0 2px 5px rgba(0, 0, 0, 0.1);
   --shadow-secondary-button-dark: 0 2px 5px rgba(0, 0, 0, 0.25);
+
 
 }
 
@@ -208,7 +210,7 @@ strong {
   background-size: 2000%;
   background-position: left center;
   transition: background 2s ease;
-  color: #C44B45;
+  color: var(--color-button-secondary-text);
   cursor: pointer;
 }
 
@@ -289,11 +291,15 @@ button.trasp{
 /* ============ MARKDOWN FILES ========================================================*/
 
 .article-markdown a {
-  color: var(--color-tags-text)
+  color: var(--color-button-secondary-text)
 }
 
 .dark .article-markdown a {
   color: var(--color-main-accent-dark)
+}
+
+.article-markdown p {
+  white-space: normal; /*override the global white-space rule to render newlines properly with remark-breaks plugin*/
 }
 
 .article-markdown ul {
@@ -332,12 +338,43 @@ button.trasp{
   margin: 0.25rem 0;
 }
 
+/*This is for >Text */
+.article-markdown blockquote {
+  border-left: 4px solid var(--color-main-accent);
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin: 1.5rem 0;
+  color: var(--color-secondary-text);
+  font-style: italic;
+}
+
+.dark .article-markdown blockquote {
+  border-left-color: var(--color-main-accent-dark);
+  color: var(--color-secondary-text-dark);
+}
+
+/*avoid double margins if a <p> is the only child*/
+.article-markdown blockquote p {
+  margin: 0;
+}
+
+/*"Reading time X"*/
+.article-markdown small {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-secondary-text);
+  margin-top: -0.5rem; /* pull it closer to the title above */
+}
+
+.dark .article-markdown small {
+  color: var(--color-secondary-text-dark);
+}
+
 
 /*==================================== CODE BLOCK THEME ==================================================== */
 
 :root {
   --code-bg: #2A2420;
-  --code-bg-inline: #F8F8F8;
+  --code-bg-inline: #f1d1b0;
   --code-text: var(--color-white);
   --code-border: rgba(255, 170, 126, 0.15);
 
@@ -393,8 +430,17 @@ button.trasp{
 
 /* Inline code */
 .article-markdown :not(pre) > code {
-  background: var(--code-bg);
-  color: var(--code-keyword);
+  background: var(--color-tags-bg);
+  color: var(--color-tags-text);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+.dark .article-markdown :not(pre) > code {
+  background: var(--color-tags-bg-dark);
+  color: var(--color-tags-text-dark);
   padding: 0.15rem 0.4rem;
   border-radius: 0.25rem;
   font-family: 'Fira Code', 'Courier New', monospace;

@@ -3,6 +3,7 @@ interface Frontmatter {
   date: string
   description: string
   tags?: string[]
+  readingTime: string
   published?: boolean
 }
 
@@ -73,6 +74,11 @@ const modules: Record<string, string> = import.meta.glob('../blogPosts/*.md', {
   eager: true,
 }) as Record<string, string>
 
+function parseDate(d: string): number {
+  const [day, month, year] = d.split('-').map(Number)
+  return new Date(year, month - 1, day).getTime()
+}
+
 export const posts: Post[] = Object.entries(modules)
   .map(([path, raw]) => {
     const { data, content } = parseFrontmatter(raw)
@@ -84,4 +90,4 @@ export const posts: Post[] = Object.entries(modules)
     }
   })
   .filter(p => p.published)
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .sort((a, b) => parseDate(b.date) - parseDate(a.date))

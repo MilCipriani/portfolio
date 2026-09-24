@@ -48,3 +48,4 @@ npm run prod     #Check prod build locally (including GitHub workflow's operatio
 ## Roadmap
 
 - [x] Blog section for writing about projects and challenges
+- [ ] Adding an overlay so users can easily open and zoom into blog images
