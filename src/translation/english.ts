@@ -11,7 +11,7 @@ export default {
       h2: "Fullstack developer",
       p: "From a Figma mockup to production infrastructure",
       p1: "I build web applications end to end: from UI to the infrastructure running underneath, which I design security-first. I care about code that's maintainable, systems that are reliable, and products that are tailored to their users. ",
-      p2: "Open to remote and hybrid frontend or fullstack roles in Europe.",
+      p2: "Open to frontend or fullstack roles in Europe.",
       button: "See my work",
       contactMe: "or contact me"
     },

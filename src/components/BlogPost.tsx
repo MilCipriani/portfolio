@@ -13,6 +13,7 @@ export default function BlogPost() {
   return (
     <main className="article-markdown w-full h-full flex flex-col max-w-150 mx-auto">
       <div className='flex flex-col gap-6 mb-32'>
+        <p className="text-sm text-secondary-text">Reading time {post.readingTime}</p>
         <ReactMarkdown
         remarkPlugins={[remarkBreaks]}
         rehypePlugins={[rehypeRaw, rehypeHighlight]}
@@ -23,7 +24,7 @@ export default function BlogPost() {
                 console.warn(`Image not found in imageMap: ${src}`);
                 return null;
               }
-              return <img src={resolvedSrc} alt={alt ?? ''} loading="lazy" />;
+              return <img src={resolvedSrc} alt={alt ?? ''} loading="lazy" className='max-h-144'/>;
             },
             a: ({href, children}) => (
               <a href={href} target="_blank" rel="noopener noreferrer">
